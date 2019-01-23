@@ -260,7 +260,7 @@
 						return;
 					}
 
-					if (panel.workspace === workspaceName) {
+					if (panel.workspaces.includes(workspaceName)) {
 						panels.push(panel);
 					}
 				});

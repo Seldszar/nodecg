@@ -52,7 +52,7 @@ test('should return the expected data when "nodecg" property does exist', t => {
 			'\n    window.parent.dashboardApi = window.nodecg;\n</script>\n</body></html>',
 			dialog: false,
 			bundleName: 'good-bundle',
-			workspace: 'default',
+			workspaces: ['default'],
 			fullbleed: false
 		},
 		{
@@ -66,7 +66,7 @@ test('should return the expected data when "nodecg" property does exist', t => {
 			'workspace!</p>\n</body></html>',
 			dialog: false,
 			bundleName: 'good-bundle',
-			workspace: 'foo',
+			workspaces: ['foo', 'bar'],
 			fullbleed: false
 		},
 		{
@@ -80,7 +80,7 @@ test('should return the expected data when "nodecg" property does exist', t => {
 			dialog: false,
 			bundleName: 'good-bundle',
 			fullbleed: true,
-			workspace: 'default'
+			workspaces: ['default']
 		},
 		{
 			name: 'test-dialog',

@@ -25,6 +25,7 @@
         "width": 1,
         "file": "workspace-panel.html",
         "workspace": "foo",
+        "workspaces": ["bar"],
         "headerColor": "#ffffff"
       },{
         "name": "test-fullbleed-panel",
