@@ -1,16 +1,30 @@
 FROM node:8
 
+# Ensure base directory
+RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-# Copy NodeCG (just the files we need)
-RUN mkdir cfg && mkdir bundles && mkdir logs && mkdir db
-COPY . /usr/src/app/
+# Copy the package manifest
+COPY package.json /usr/src/app/
+
+# Install Bower globally
+RUN npm install -g bower
 
 # Install dependencies
-RUN npm install -g bower
-RUN npm install --production
-RUN bower install --allow-root
+RUN npm install --production && npm cache clean --force
+RUN bower install --allow-root && bower cache clean
 
-# The command to run
+# Copy the rest
+COPY . /usr/src/app
+
+# Ensure NodeCG directories
+RUN mkdir bundles cfg db logs
+
+# Define volumes
+VOLUME /usr/src/app/bundles /usr/src/app/cfg /usr/src/app/db /usr/src/app/logs
+
+# Expose default port
 EXPOSE 9090
-CMD ["node", "index.js"]
+
+# Start NodeCG
+CMD ["npm", "start"]
