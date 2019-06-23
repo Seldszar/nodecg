@@ -540,3 +540,25 @@ test.serial('#waitForReplicants', async t => {
 
 	t.pass();
 });
+
+test.serial('should include the raw value and being different instances', async t => {
+	t.plan(2);
+
+	await dashboard.evaluate(() => new Promise(resolve => {
+		const defaultValue = {
+			lorem: 'ipsum'
+		};
+
+		const rep = t.context.apis.extension.Replicant('rawValue', {
+			persistent: false,
+			defaultValue
+		});
+
+		rep.on('change', () => {
+			t.deepEqual(rep.rawValue, defaultValue);
+			t.not(rep.rawValue, rep.value);
+
+			resolve();
+		});
+	})).catch(t.fail);
+});

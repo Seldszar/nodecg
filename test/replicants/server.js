@@ -323,3 +323,17 @@ test.serial('test that one else path that\'s hard to hit', t => {
 	rep.value[0] = true;
 	t.pass();
 });
+
+test.serial('should include the raw value and being different instances', t => {
+	const defaultValue = {
+		lorem: 'ipsum'
+	};
+
+	const rep = t.context.apis.extension.Replicant('rawValue', {
+		persistent: false,
+		defaultValue
+	});
+
+	t.deepEqual(rep.rawValue, defaultValue);
+	t.not(rep.rawValue, rep.value);
+});
