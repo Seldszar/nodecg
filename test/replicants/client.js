@@ -540,3 +540,28 @@ test.serial('#waitForReplicants', async t => {
 
 	t.pass();
 });
+
+test.serial.cb('should keep operations & assignements in order', t => {
+	t.plan(1);
+
+	const rep = t.context.apis.extension.Replicant('assignmentOrder', {
+		defaultValue: [],
+		persistent: false
+	});
+
+	process.nextTick(() => {
+		rep.value.push('foo');
+		rep.value = ['bar'];
+	});
+
+	dashboard.evaluate(() => new Promise(resolve => {
+		const rep = t.context.apis.extension.Replicant('assignmentOrder');
+
+		rep.on('declared', () => {
+			rep.on('change', newValue => resolve(newValue));
+		});
+	})).then(browserValue => {
+		t.deepEqual(browserValue, rep.value);
+		t.end();
+	}).catch(t.fail);
+});
