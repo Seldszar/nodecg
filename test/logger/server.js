@@ -123,18 +123,13 @@ test('replicant - should change settings when reconfigured', t => {
 });
 
 test('logging methods should all prepend the instance name to the output', t => {
-	['trace', 'debug', 'info', 'warn', 'error'].forEach(level => {
-		sinon.spy(Logger._winston, level);
+	['trace', 'debug', 'info', 'warn', 'error', 'replicants'].forEach(level => {
+		sinon.spy(Logger._winston, 'write');
 		t.context.logger[level](level);
-		t.deepEqual(Logger._winston[level].getCall(0).args, [`[testServer] ${level}`]);
-		Logger._winston[level].restore();
+		t.is(Logger._winston.write.args[0][0].label, 'testServer');
+		t.is(Logger._winston.write.args[0][0].message, level);
+		Logger._winston.write.restore();
 	});
-
-	// Replicants has to be tested differently than the others
-	sinon.spy(Logger._winston, 'info');
-	t.context.logger.replicants('replicants');
-	t.deepEqual(Logger._winston.info.getCall(0).args, ['[testServer] replicants']);
-	Logger._winston.info.restore();
 });
 
 test('logging methods should not generate any output when too low a level', t => {
@@ -161,7 +156,7 @@ test('logging methods should generate any output when of an adequate level', t =
 
 	sinon.spy(process.stdout, 'write');
 	t.context.logger.trace('info');
-	t.true(process.stdout.write.getCall(0).args[0].startsWith('\u001b[32mtrace\u001b[39m: [testServer] info'));
+	t.true(process.stdout.write.args[0][0].includes('\x1B[1mtestServer\x1B[22m \x1B[35mtrace\x1B[39m: info'));
 	process.stdout.write.restore();
 });
 
