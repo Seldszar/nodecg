@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="https://raw.githubusercontent.com/nodecg/nodecg/master/src/favicon.ico">
-    <title>Sounds - Documentation</title>
+    <title>TypeScript - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -42,7 +42,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Sounds</h1>
+    <h1 class="page-title">TypeScript</h1>
     
 
     <section>
@@ -52,51 +52,40 @@
 </header>
 
 <article>
-    <p>NodeCG features a system for management and playback of sound cues. To add sound cues to your bundle,
-create a <code>nodecg.soundCues</code> array in your <code>package.json</code>:</p>
-<pre class="prettyprint source lang-json"><code>{
-  &quot;name&quot;: &quot;test-bundle&quot;,
-  &quot;nodecg&quot;: {
-    &quot;soundCues&quot;: [
-      {
-        &quot;name&quot;: &quot;name-only&quot;
-      },
-      {
-        &quot;name&quot;: &quot;default-volume&quot;,
-        &quot;defaultVolume&quot;: 80
-      },
-      {
-        &quot;name&quot;: &quot;non-assignable&quot;,
-        &quot;assignable&quot;: false,
-        &quot;defaultFile&quot;: &quot;sound/default-file.ogg&quot;
-      },
-      {
-        &quot;name&quot;: &quot;default-file&quot;,
-        &quot;defaultFile&quot;: &quot;sound/default-file.ogg&quot;
-      },
-      {
-      	&quot;name&quot;: &quot;single-channel&quot;,
-      	&quot;channels&quot;: 1
-      }
-    ]
-  }
+    <p>NodeCG includes TypeScript type definitions for NodeCG APIs.</p>
+<p><strong>The type definition is experimental.</strong></p>
+<h2 id="setup">Setup</h2>
+<p>Install TypeScript as your bundle's dev dependency.</p>
+<pre class="prettyprint source lang-sh"><code>npm install -D typescript
+# or
+yarn add -D typescript
+</code></pre>
+<h2 id="typing-replicants">Typing Replicants</h2>
+<p>Optionally, you can define types of replicants using replicants' JSON schema.</p>
+<ol>
+<li>Define schema for replicants</li>
+<li>Use https://github.com/bcherny/json-schema-to-typescript to convert JSON schema to TypeScript type definitions</li>
+<li>Import the type and pass it to type parameter like this:</li>
+</ol>
+<pre class="prettyprint source lang-ts"><code>const rep = nodecg.Replicant&lt;SchemaTypeDef>('schemaTypeDef')
+</code></pre>
+<h2 id="using-type-definitions">Using Type Definitions</h2>
+<p>More examples are available in <code>typetest</code> directory, which is also used to test the type definitions.</p>
+<h3 id="extension">extension</h3>
+<pre class="prettyprint source lang-ts"><code>// Directly import the type definition file
+import {NodeCG} from '../../../../types/server'
+
+export = (nodecg: NodeCG) => {
+  nodecg.sendMessage('message')
 }
 </code></pre>
-<p>Your bundle will now have a card on the Mixer page of the Dashboard.</p>
-<iframe src='https://gfycat.com/ifr/PrestigiousShyGoldeneye' frameborder='0' scrolling='no' width='640' height='426.6666666666667' allowfullscreen></iframe>
-<p><code>defaultFile</code>s are audio files that you ship with your bundle. They will be available to that specific cue as a
-&quot;Default&quot; option in that cue's dropdown select on the Mixer.</p>
-<p><code>channels</code> determines how many instances of a sound can be playing simultaneously. The default value is <code>100</code>. If set to <code>1</code>,
-only one instance can play at a time, and a new instance cannot be started until the currently playing instance has completed.</p>
-<p>If your bundle has at least one cue that is <code>assignable</code>, it will gain a &quot;Sounds&quot; <a href="tutorial-assets.html">Asset</a> category.
-This category accepts <code>.ogg</code> and <code>.mp3</code> files. Any audio files uploaded to this category will become available as options
-in all of your <code>assignable</code> cues' dropdown boxes.</p>
-<p>If your bundle has Sound Cues, the following API methods will be available to your graphic:</p>
-<ul>
-<li><a href="NodeCG.html#playSound"><code>NodeCG#playSound</code></a></li>
-<li><a href="NodeCG.html#stopSound"><code>NodeCG#stopSound</code></a></li>
-<li><a href="NodeCG.html#stopAllSounds"><code>NodeCG#stopAllSounds</code></a></li>
-</ul>
+<h3 id="dashboard%2Fgraphics">dashboard/graphics</h3>
+<pre class="prettyprint source lang-ts"><code>/// &lt;reference path=&quot;../../../../types/browser.d.ts&quot; />
+
+nodecg.listenFor('message', () => {
+  // ...
+})
+</code></pre>
 </article>
 
 </section>

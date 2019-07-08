@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Tutorial: Performance Tips - Documentation</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="https://raw.githubusercontent.com/nodecg/nodecg/master/src/favicon.ico">
+    <title>Performance Tips - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -12,8 +14,20 @@
     <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    
+    <link type="text/css" rel="stylesheet" href="styles/github-corner.css">
+    
 </head>
 <body>
+
+<a href="https://github.com/nodecg/nodecg" class="github-corner" aria-label="View source on Github">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff;" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+
 
 <input type="checkbox" id="nav-trigger" class="nav-trigger" />
 <label for="nav-trigger" class="navicon-button x">
@@ -23,51 +37,57 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="NodeCG.html">NodeCG</a><ul class='methods'><li data-type='method'><a href="NodeCG.html#findCue">findCue</a></li><li data-type='method'><a href="NodeCG.html#getDialog">getDialog</a></li><li data-type='method'><a href="NodeCG.html#getDialogDocument">getDialogDocument</a></li><li data-type='method'><a href="NodeCG.html#getSocketIOServer">getSocketIOServer</a></li><li data-type='method'><a href="NodeCG.html#listenFor">listenFor</a></li><li data-type='method'><a href="NodeCG.html#log">log</a></li><li data-type='method'><a href="NodeCG.html#mount">mount</a></li><li data-type='method'><a href="NodeCG.html#playSound">playSound</a></li><li data-type='method'><a href="NodeCG.html#readReplicant">readReplicant</a></li><li data-type='method'><a href="NodeCG.html#Replicant">Replicant</a></li><li data-type='method'><a href="NodeCG.html#sendMessage">sendMessage</a></li><li data-type='method'><a href="NodeCG.html#sendMessageToBundle">sendMessageToBundle</a></li><li data-type='method'><a href="NodeCG.html#stopAllSounds">stopAllSounds</a></li><li data-type='method'><a href="NodeCG.html#stopSound">stopSound</a></li></ul></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-assets.html">Assets</a></li><li><a href="tutorial-bundle-configuration.html">Bundle Configuration</a></li><li><a href="tutorial-custom-routes.html">Custom Routes</a></li><li><a href="tutorial-making-dialogs.html">Making Dashboard Dialogs</a></li><li><a href="tutorial-manifest.html">package.json Manifest</a></li><li><a href="tutorial-migrating-0.7-to-0.8.html">Migrating from 0.7 to 0.8</a></li><li><a href="tutorial-nodecg-configuration.html">NodeCG Configuration</a></li><li><a href="tutorial-performance-tips.html">Performance Tips</a></li><li><a href="tutorial-portable-nodecg.html">Portable NodeCG</a></li><li><a href="tutorial-replicant-schemas.html">Replicant Validation</a></li><li><a href="tutorial-rollbar.html">Error Tracking with Rollbar</a></li><li><a href="tutorial-sounds.html">Sounds</a></li><li><a href="tutorial-using-bower.html">Using Bower Dependencies</a></li><li><a href="tutorial-using-npm.html">Using npm Dependencies</a></li></ul>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Tutorials</li><li class="nav-item"><a href="tutorial-1_what-is-nodecg.html">What is NodeCG?</a></li><li class="nav-item"><a href="tutorial-2_concepts-and-terminology.html">Concepts and Terminology</a></li><li class="nav-item"><a href="tutorial-3_quick-start.html">Quick Start</a></li><li class="nav-item"><a href="tutorial-4_security.html">Security & Authentication</a></li><li class="nav-item"><a href="tutorial-5_manifest.html">package.json Manifest</a></li><li class="nav-item"><a href="tutorial-6_nodecg-configuration.html">NodeCG Configuration</a></li><li class="nav-item"><a href="tutorial-7_using-npm.html">Using npm Dependencies</a></li><li class="nav-item"><a href="tutorial-8_using-bower.html">Using Bower Dependencies</a></li><li class="nav-item"><a href="tutorial-9_bundle-configuration.html">Bundle Configuration</a></li><li class="nav-item"><a href="tutorial-assets.html">Assets</a></li><li class="nav-item"><a href="tutorial-custom-routes.html">Custom Routes</a></li><li class="nav-item"><a href="tutorial-making-dialogs.html">Making Dashboard Dialogs</a></li><li class="nav-item"><a href="tutorial-migrating-0.7-to-0.8.html">Migrating from 0.7 to 0.8</a></li><li class="nav-item"><a href="tutorial-migrating-0.8-to-0.9.html">Migrating from 0.8 to 0.9</a></li><li class="nav-item"><a href="tutorial-migrating-0.9-to-1.0.html">Migrating from 0.9 to 1.0</a></li><li class="nav-item"><a href="tutorial-mounts.html">Mount folders as endpoints</a></li><li class="nav-item"><a href="tutorial-performance-tips.html">Performance Tips</a></li><li class="nav-item"><a href="tutorial-portable-nodecg.html">Portable NodeCG</a></li><li class="nav-item"><a href="tutorial-replicant-schemas.html">Replicant Validation</a></li><li class="nav-item"><a href="tutorial-screenshot-testing.html">Screenshot Testing Graphics</a></li><li class="nav-item"><a href="tutorial-sentry.html">Error Reporting with Sentry.io</a></li><li class="nav-item"><a href="tutorial-sounds.html">Sounds</a></li><li class="nav-item"><a href="tutorial-typescript.html">TypeScript</a></li><li class="nav-item"><a href="tutorial-using-bundlers.html">Using Bundlers</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="NodeCG.html">NodeCG</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#.waitForReplicants">waitForReplicants</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#findCue">findCue</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#getDialog">getDialog</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#getDialogDocument">getDialogDocument</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#getSocketIOServer">getSocketIOServer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#listenFor">listenFor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#log">log</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#mount">mount</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#playSound">playSound</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#readReplicant">readReplicant</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#Replicant">Replicant</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#sendMessage">sendMessage</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#sendMessageToBundle">sendMessageToBundle</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#stopAllSounds">stopAllSounds</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#stopSound">stopSound</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#unlisten">unlisten</a></span></li>
 </nav>
 
 <div id="main">
     
-    <h1 class="page-title">Tutorial: Performance Tips</h1>
+    <h1 class="page-title">Performance Tips</h1>
     
 
     <section>
 
 <header>
     
-
-    <h2>Performance Tips</h2>
 </header>
 
 <article>
-    <h2>Be careful which CSS properties you animate</h2><p>Many CSS properties trigger <code>layout</code> events when changed. That means that changing one property can sometimes cause
+    <h3 id="be-careful-which-css-properties-you-animate">Be careful which CSS properties you animate</h3>
+<p>Many CSS properties trigger <code>layout</code> events when changed. That means that changing one property can sometimes cause
 the entire page to be re-rendered, which imposes a significant performance hit. <a href="http://csstriggers.com/">CSS Triggers</a> is a website
 that lets you quickly check which CSS properties are expensive to animate. (Spoilers: <code>transform</code> and <code>opacity</code> are just about the only
 CSS properties that can be freely maniuplated with little overhead).</p>
-<h2>Minimize active <code>&lt;video&gt;</code> tags</h2><p>For animations that are always the same, pre-rendering them as webm video (which supports alpha transparency)
+<h3 id="minimize-active-%3Cvideo%3E-tags">Minimize active <code>&lt;video&gt;</code> tags</h3>
+<p>For animations that are always the same, pre-rendering them as webm video (which supports alpha transparency)
 is an option. However, care must be taken to remove these <code>&lt;video&gt;</code> nodes from the DOM when they are not in use.
 Even if a <code>&lt;video&gt;</code> tag is not currently playing, simply having it in the DOM can impact performance.</p>
-<h2>Use sprite sheets when appropriate</h2><p>For short pre-rendered animations, a sprite sheet might be the best solution.
+<h3 id="use-sprite-sheets-when-appropriate">Use sprite sheets when appropriate</h3>
+<p>For short pre-rendered animations, a sprite sheet might be the best solution.
 If done right, they can be smaller in size and perform better than their <code>&lt;video&gt;</code> counterpart.
 There are many libraries and tools out there for sprite sheet creation, but
 <a href="http://www.createjs.com/#!/EaselJS">EaselJS</a> (javascript Canvas2D library) and
 <a href="https://www.codeandweb.com/texturepacker">TexturePacker</a> (sprite sheet creation program) are a good place to start.</p>
-<h2>A <code>&lt;div&gt;</code> is (generally) faster than a picture or video</h2><p>Videos and sprite sheets can be nice shortcuts to speed up production time, but if your graphic is
+<h3 id="a-%3Cdiv%3E-is-(generally)-faster-than-a-picture-or-video">A <code>&lt;div&gt;</code> is (generally) faster than a picture or video</h3>
+<p>Videos and sprite sheets can be nice shortcuts to speed up production time, but if your graphic is
 struggling to maintain a solid framerate then you may need to consider breaking it down into smaller parts.
 A handful of <code>&lt;div&gt;</code>s will generally perform better than a video or sprite sheet, as long as you aren't
-applying too many performance-intensive CSS styles. Use <a href="http://csstriggers.com/">CSS Triggers</a> as a reference to 
+applying too many performance-intensive CSS styles. Use <a href="http://csstriggers.com/">CSS Triggers</a> as a reference to
 know how expensive it is to animate various CSS properties.</p>
-<h2>Minimize alpha pixels</h2><p>Alpha (transparency) is expensive to render. Try to keep your images and videos with alpha cropped as much as possible.</p>
-<h2>Avoid multiple CSS masks</h2><p><a href="http://www.html5rocks.com/en/tutorials/masking/adobe/">CSS masks</a> have their uses, but layering
+<h3 id="minimize-alpha-pixels">Minimize alpha pixels</h3>
+<p>Alpha (transparency) is expensive to render. Try to keep your images and videos with alpha cropped as much as possible.</p>
+<h3 id="avoid-multiple-css-masks">Avoid multiple CSS masks</h3>
+<p><a href="http://www.html5rocks.com/en/tutorials/masking/adobe/">CSS masks</a> have their uses, but layering
 multiple masks in a scene can lead to significant performance reductions.
 When possible, use a culling <code>div</code> with <code>overflow: hidden</code> instead.</p>
-<h2>Compress your images</h2><p>Compressed images won't help framerate, but they will improve load times.
+<h3 id="compress-your-images">Compress your images</h3>
+<p>Compressed images won't help framerate, but they will improve load times.
 Compressing your PNGs with a service such as <a href="https://tinypng.com/">TinyPNG</a> can result in dramatically
 reduced filesizes. Be careful when compressing images with subtle gradients, as some detail may be lost.</p>
-<h2>Keep <code>&lt;canvas&gt;</code> tags above 256x257 total pixels</h2><p>In Chrome, <code>&lt;canvas&gt;</code> tags are only hardware accelerated when their total size is at least 256x257 pixels.
+<h3 id="keep-%3Ccanvas%3E-tags-above-256x257-total-pixels">Keep <code>&lt;canvas&gt;</code> tags above 256x257 total pixels</h3>
+<p>In Chrome, <code>&lt;canvas&gt;</code> tags are only hardware accelerated when their total size is at least 256x257 pixels.
 Below this size, canvases are software rasterized and can severely reduce the framerate and performance of a graphic.</p>
 <p>Sources:
-<a href="https://groups.google.com/a/chromium.org/forum/#!topic/blink-dev/NPSQdiXSK4w">1</a> 
+<a href="https://groups.google.com/a/chromium.org/forum/#!topic/blink-dev/NPSQdiXSK4w">1</a>
 <a href="https://chromium.googlesource.com/external/Webkit/+/f10c2d38aefd143134545e397bc49c8e305d3ba8/Source/WebCore/page/Settings.cpp#133">2</a></p>
 </article>
 
@@ -78,16 +98,11 @@ Below this size, canvases are software rasterized and can severely reduce the fr
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Mon Jun 12 2017 13:54:46 GMT-0500 (Central Daylight Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on Tue Jul 09 2019 00:13:57 GMT+0200 (GMT+02:00) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
 <script src="scripts/linenumber.js"></script>
-<script>
-  ((window.gitter = {}).chat = {}).options = {
-    room: 'nodecg/nodecg'
-  };
-</script>
-<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+<script src="scripts/currentpage.js"></script>
 </body>
 </html>

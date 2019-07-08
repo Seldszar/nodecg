@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="https://raw.githubusercontent.com/nodecg/nodecg/master/src/favicon.ico">
     <title>api.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
@@ -12,8 +14,20 @@
     <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    
+    <link type="text/css" rel="stylesheet" href="styles/github-corner.css">
+    
 </head>
 <body>
+
+<a href="https://github.com/nodecg/nodecg" class="github-corner" aria-label="View source on Github">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff;" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+
 
 <input type="checkbox" id="nav-trigger" class="nav-trigger" />
 <label for="nav-trigger" class="navicon-button x">
@@ -23,7 +37,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="NodeCG.html">NodeCG</a><ul class='methods'><li data-type='method'><a href="NodeCG.html#findCue">findCue</a></li><li data-type='method'><a href="NodeCG.html#getDialog">getDialog</a></li><li data-type='method'><a href="NodeCG.html#getDialogDocument">getDialogDocument</a></li><li data-type='method'><a href="NodeCG.html#getSocketIOServer">getSocketIOServer</a></li><li data-type='method'><a href="NodeCG.html#listenFor">listenFor</a></li><li data-type='method'><a href="NodeCG.html#log">log</a></li><li data-type='method'><a href="NodeCG.html#mount">mount</a></li><li data-type='method'><a href="NodeCG.html#playSound">playSound</a></li><li data-type='method'><a href="NodeCG.html#readReplicant">readReplicant</a></li><li data-type='method'><a href="NodeCG.html#Replicant">Replicant</a></li><li data-type='method'><a href="NodeCG.html#sendMessage">sendMessage</a></li><li data-type='method'><a href="NodeCG.html#sendMessageToBundle">sendMessageToBundle</a></li><li data-type='method'><a href="NodeCG.html#stopAllSounds">stopAllSounds</a></li><li data-type='method'><a href="NodeCG.html#stopSound">stopSound</a></li></ul></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-assets.html">Assets</a></li><li><a href="tutorial-bundle-configuration.html">Bundle Configuration</a></li><li><a href="tutorial-custom-routes.html">Custom Routes</a></li><li><a href="tutorial-making-dialogs.html">Making Dashboard Dialogs</a></li><li><a href="tutorial-manifest.html">package.json Manifest</a></li><li><a href="tutorial-migrating-0.7-to-0.8.html">Migrating from 0.7 to 0.8</a></li><li><a href="tutorial-nodecg-configuration.html">NodeCG Configuration</a></li><li><a href="tutorial-performance-tips.html">Performance Tips</a></li><li><a href="tutorial-portable-nodecg.html">Portable NodeCG</a></li><li><a href="tutorial-replicant-schemas.html">Replicant Validation</a></li><li><a href="tutorial-rollbar.html">Error Tracking with Rollbar</a></li><li><a href="tutorial-sounds.html">Sounds</a></li><li><a href="tutorial-using-bower.html">Using Bower Dependencies</a></li><li><a href="tutorial-using-npm.html">Using npm Dependencies</a></li></ul>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Tutorials</li><li class="nav-item"><a href="tutorial-1_what-is-nodecg.html">What is NodeCG?</a></li><li class="nav-item"><a href="tutorial-2_concepts-and-terminology.html">Concepts and Terminology</a></li><li class="nav-item"><a href="tutorial-3_quick-start.html">Quick Start</a></li><li class="nav-item"><a href="tutorial-4_security.html">Security & Authentication</a></li><li class="nav-item"><a href="tutorial-5_manifest.html">package.json Manifest</a></li><li class="nav-item"><a href="tutorial-6_nodecg-configuration.html">NodeCG Configuration</a></li><li class="nav-item"><a href="tutorial-7_using-npm.html">Using npm Dependencies</a></li><li class="nav-item"><a href="tutorial-8_using-bower.html">Using Bower Dependencies</a></li><li class="nav-item"><a href="tutorial-9_bundle-configuration.html">Bundle Configuration</a></li><li class="nav-item"><a href="tutorial-assets.html">Assets</a></li><li class="nav-item"><a href="tutorial-custom-routes.html">Custom Routes</a></li><li class="nav-item"><a href="tutorial-making-dialogs.html">Making Dashboard Dialogs</a></li><li class="nav-item"><a href="tutorial-migrating-0.7-to-0.8.html">Migrating from 0.7 to 0.8</a></li><li class="nav-item"><a href="tutorial-migrating-0.8-to-0.9.html">Migrating from 0.8 to 0.9</a></li><li class="nav-item"><a href="tutorial-migrating-0.9-to-1.0.html">Migrating from 0.9 to 1.0</a></li><li class="nav-item"><a href="tutorial-mounts.html">Mount folders as endpoints</a></li><li class="nav-item"><a href="tutorial-performance-tips.html">Performance Tips</a></li><li class="nav-item"><a href="tutorial-portable-nodecg.html">Portable NodeCG</a></li><li class="nav-item"><a href="tutorial-replicant-schemas.html">Replicant Validation</a></li><li class="nav-item"><a href="tutorial-screenshot-testing.html">Screenshot Testing Graphics</a></li><li class="nav-item"><a href="tutorial-sentry.html">Error Reporting with Sentry.io</a></li><li class="nav-item"><a href="tutorial-sounds.html">Sounds</a></li><li class="nav-item"><a href="tutorial-typescript.html">TypeScript</a></li><li class="nav-item"><a href="tutorial-using-bundlers.html">Using Bundlers</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="NodeCG.html">NodeCG</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#.waitForReplicants">waitForReplicants</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#findCue">findCue</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#getDialog">getDialog</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#getDialogDocument">getDialogDocument</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#getSocketIOServer">getSocketIOServer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#listenFor">listenFor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#log">log</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#mount">mount</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#playSound">playSound</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#readReplicant">readReplicant</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#Replicant">Replicant</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#sendMessage">sendMessage</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#sendMessageToBundle">sendMessageToBundle</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#stopAllSounds">stopAllSounds</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#stopSound">stopSound</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#unlisten">unlisten</a></span></li>
 </nav>
 
 <div id="main">
@@ -44,33 +58,71 @@
 
 const Replicant = require('./replicant');
 const server = require('./server');
-const filteredConfig = require('./config').filteredConfig;
+const {filteredConfig} = require('./config');
 const utils = require('./util');
 const replicator = require('./replicator');
+const isError = require('is-error');
+const serializeError = require('serialize-error');
+const {version} = require('../package.json');
 let io;
+
+const apiContexts = new Set();
 
 /**
  * Creates a new NodeCG API instance. It should never be necessary to use this constructor in a bundle,
  * as NodeCG automatically injects a pre-made API instance.
  * @constructor
  * @param {object} bundle - The bundle object to build an API instance from.
+ * @param {object} socket - The Socket.IO socket instance to communicate with.
  */
 function NodeCG(bundle, socket) {
 	const self = this;
 
-	// Make bundle name and config publicly accessible
+	/**
+	 * The name of the bundle which this NodeCG API instance is for.
+	 * @name NodeCG#bundleName
+	 */
 	this.bundleName = bundle.name;
 
 	/**
 	 * An object containing the parsed content of `cfg/&lt;bundle-name>.json`, the contents of which
 	 * are read once when NodeCG starts up. Used to quickly access per-bundle configuration properties.
-	 * @property {Object}
 	 * @name NodeCG#bundleConfig
 	 */
 	this.bundleConfig = bundle.config;
 
 	/**
-	 * Provides access to NodeCG's logger, with the following methods. The logging level is set in `cfg/nodecg.json`,
+	 * The version (from package.json) of the bundle which this NodeCG API instance is for.
+	 * @name NodeCG#bundleVersion
+	 */
+	this.bundleVersion = bundle.version;
+
+	/**
+	 * Provides information about the current git status of this bundle, if found.
+	 * @name NodeCG#bundleGit
+	 * @readonly
+	 * @property {String} branch - What branch this bundle is on.
+	 * @property {String} hash - The full hash of the commit this bundle is on.
+	 * @property {String} shortHash - The short hash of the commit this bundle is on.
+	 * @property {Date} [date] - The date of the commit this bundle is on.
+	 * @property {String} [message] - The message of the commit this bundle is on.
+	 */
+	Object.defineProperty(this, 'bundleGit', {
+		value: bundle.git,
+		writable: false
+	});
+	Object.freeze(this.bundleGit);
+
+	/**
+	 * Provides easy access to the Logger class.
+	 * Useful in cases where you want to create your own custom logger.
+	 * @type {Object}
+	 * @name NodeCG#Logger
+	 */
+	this.Logger = require('./logger');
+
+	/**
+	 * An instance of NodeCG's Logger, with the following methods. The logging level is set in `cfg/nodecg.json`,
 	 * NodeCG's global config file.
 	 * ```
 	 * nodecg.log.trace('trace level logging');
@@ -82,7 +134,7 @@ function NodeCG(bundle, socket) {
 	 * @function {Object}
 	 * @name NodeCG#log
 	 */
-	this.log = require('./logger')(bundle.name);
+	this.log = new this.Logger(bundle.name);
 
 	this._messageHandlers = [];
 
@@ -103,7 +155,7 @@ function NodeCG(bundle, socket) {
 			const customCuesRep = new Replicant('customSoundCues', this.bundleName, {}, socket);
 			this._soundFiles = new Replicant('assets:sounds', this.bundleName, {}, socket);
 			this._bundleVolume = new Replicant(`volume:${this.bundleName}`, '_sounds', {}, socket);
-			this._masterVolume = new Replicant(`volume:master`, '_sounds', {}, socket);
+			this._masterVolume = new Replicant('volume:master', '_sounds', {}, socket);
 
 			this._soundCues = [];
 
@@ -145,8 +197,10 @@ function NodeCG(bundle, socket) {
 
 		// Upon receiving a message, execute any handlers for it
 		socket.on('message', data => {
-			self.log.trace('Received message %s (sent to bundle %s) with data:',
-				data.messageName, data.bundleName, data.content);
+			self.log.trace(
+				'Received message %s (sent to bundle %s) with data:',
+				data.messageName, data.bundleName, data.content
+			);
 
 			self._messageHandlers.forEach(handler => {
 				if (data.messageName === handler.messageName &amp;&amp;
@@ -169,14 +223,17 @@ function NodeCG(bundle, socket) {
 
 		io.on('connection', socket => {
 			socket.setMaxListeners(64); // Prevent console warnings when many extensions are installed
-			socket.on('message', (data, cb) => {
-				self.log.trace('[%s] Received message %s (sent to bundle %s) with data:',
-					self.bundleName, data.messageName, data.bundleName, data.content);
+			socket.on('message', (data, ack) => {
+				self.log.trace(
+					'Received message %s (sent to bundle %s) with data:',
+					data.messageName, data.bundleName, data.content
+				);
 
+				const wrappedAck = _wrapAcknowledgement(ack);
 				self._messageHandlers.forEach(handler => {
 					if (data.messageName === handler.messageName &amp;&amp;
 						data.bundleName === handler.bundleName) {
-						handler.func(data.content, cb);
+						handler.func(data.content, wrappedAck);
 					}
 				});
 			});
@@ -185,15 +242,18 @@ function NodeCG(bundle, socket) {
 
 	// Create read-only config property, which contains the current filtered NodeCG config
 	Object.defineProperty(this, 'config', {
-		value: filteredConfig,
+		value: JSON.parse(JSON.stringify(filteredConfig)),
 		writable: false,
 		enumerable: true
 	});
 
 	Object.freeze(this.config);
+	apiContexts.add(this);
 }
 
 // ###NodeCG prototype
+
+NodeCG.version = version;
 
 /**
  * Sends a message with optional data within the current bundle.
@@ -202,30 +262,68 @@ function NodeCG(bundle, socket) {
  * Messages are namespaced by bundle. To send a message in another bundle's namespace,
  * use {@link NodeCG#sendMessageToBundle}.
  *
- * If a message is sent from a client (graphic or dashboard panel), to the server (an extension),
- * it may provide an optional callback called an `acknowledgement`.
- * Acknowledgements will not work for client-to-client nor server-to-client messages.
- * Only client-to-server messages support acknowledgements. This restriction is a limitation of
- * [Socket.IO](http://socket.io/docs/#sending-and-getting-data-%28acknowledgements%29).
+ * When a `sendMessage` is used from a client context (i.e., graphic or dashboard panel),
+ * it returns a `Promise` called an "acknowledgement". Your server-side code (i.e., extension)
+ * can invoke this acknowledgement with whatever data (or error) it wants. Errors sent to acknowledgements
+ * from the server will be properly serialized and intact when received on the client.
+ *
+ * Alternatively, if you do not wish to use a `Promise`, you can provide a standard error-first
+ * callback as the last argument to `sendMessage`.
+ *
+ * If your server-side code has multiple listenFor handlers for your message,
+ * you must first check if the acknowledgement has already been handled before
+ * attempting to call it. You may so do by checking the `.handled` boolean
+ * property of the `ack` function passed to your listenFor handler.
+ *
+ * See [Socket.IO's docs](http://socket.io/docs/#sending-and-getting-data-%28acknowledgements%29)
+ * for more information on how acknowledgements work under the hood.
  *
  * @param {string} messageName - The name of the message.
  * @param {mixed} [data] - The data to send.
- * @param {function} [cb] - _Browser only_ The callback to handle the server's
+ * @param {function} [cb] - _Browser only_ The error-first callback to handle the server's
  * [acknowledgement](http://socket.io/docs/#sending-and-getting-data-%28acknowledgements%29) message, if any.
+ * @return {Promise} - _Browser only_ A Promise that is rejected if the first argument provided to the
+ * acknowledgement is an `Error`, otherwise it is resolved with the remaining arguments provided to the acknowledgement.
  *
  * @example &lt;caption>Sending a normal message:&lt;/caption>
  * nodecg.sendMessage('printMessage', 'dope.');
  *
- * @example &lt;caption>Sending a message and calling back with an acknowledgement:&lt;/caption>
+ * @example &lt;caption>Sending a message and replying with an acknowledgement:&lt;/caption>
  * // bundles/my-bundle/extension.js
- * module.exports = function(nodecg) {
- *     nodecg.listenFor('multiplyByTwo', function(value, callback) {
- *          callback(value * 2);
+ * module.exports = function (nodecg) {
+ *     nodecg.listenFor('multiplyByTwo', (value, ack) => {
+ *         if (value === 4) {
+ *             ack(new Error('I don\'t like multiplying the number 4!');
+ *             return;
+ *         }
+ *
+ *         // acknowledgements should always be error-first callbacks.
+ *         // If you do not wish to send an error, use a falsey value
+ *         // like "null" instead.
+ *         if (ack &amp;&amp; !ack.handled) {
+ *             ack(null, value * 2);
+ *         }
  *     });
  * }
  *
  * // bundles/my-bundle/graphics/script.js
- * nodecg.sendMessage('multiplyByTwo', 2, function(result) {
+ * // Both of these examples are functionally identical.
+ *
+ * // Promise acknowledgement
+ * nodecg.sendMessage('multiplyByTwo', 2)
+ *     .then(result => {
+ *         console.log(result); // Will eventually print '4'
+ *     .catch(error => {
+ *         console.error(error);
+ *     });
+ *
+ * // Error-first callback acknowledgement
+ * nodecg.sendMessage('multiplyByTwo', 2, (error, result) => {
+ *     if (error) {
+ *         console.error(error);
+ *         return;
+ *     }
+ *
  *     console.log(result); // Will eventually print '4'
  * });
  */
@@ -235,21 +333,52 @@ NodeCG.prototype.sendMessage = function (messageName, data, cb) {
 		data = null;
 	}
 
-	this.sendMessageToBundle(messageName, this.bundleName, data, cb);
+	return this.sendMessageToBundle(messageName, this.bundleName, data, cb);
 };
 
 NodeCG.sendMessageToBundle = function (messageName, bundleName, data, cb) {
+	// This is what enables intra-context messaging.
+	// I.e., passing messages from one extension to another in the same Node.js context.
+	process.nextTick(() => {
+		apiContexts.forEach(ctx => {
+			ctx._messageHandlers.forEach(handler => {
+				if (messageName === handler.messageName &amp;&amp;
+					bundleName === handler.bundleName) {
+					handler.func(data);
+				}
+			});
+		});
+	});
+
 	if (process.browser) {
 		if (typeof cb === 'undefined' &amp;&amp; typeof data === 'function') {
 			cb = data;
 			data = null;
 		}
 
-		window.socket.emit('message', {
-			bundleName,
-			messageName,
-			content: data
-		}, cb);
+		if (typeof cb === 'function') {
+			window.socket.emit('message', {
+				bundleName,
+				messageName,
+				content: data
+			}, (err, ...args) => {
+				cb(err, ...args);
+			});
+		} else {
+			return new Promise((resolve, reject) => {
+				window.socket.emit('message', {
+					bundleName,
+					messageName,
+					content: data
+				}, (err, ...args) => {
+					if (err) {
+						reject(err);
+					} else {
+						resolve(...args);
+					}
+				});
+			});
+		}
 	} else {
 		io.emit('message', {
 			bundleName,
@@ -259,23 +388,24 @@ NodeCG.sendMessageToBundle = function (messageName, bundleName, data, cb) {
 	}
 };
 
+/* eslint-disable no-unused-vars */
 /**
  * Sends a message to a specific bundle. Also available as a static method.
  * See {@link NodeCG#sendMessage} for usage details.
  * @param {string} messageName - The name of the message.
  * @param {string} bundleName - The name of the target bundle.
  * @param {mixed} [data] - The data to send.
- * @param {function} [cb] - _Browser only_ The callback to handle the server's
+ * @param {function} [cb] - _Browser only_ The error-first callback to handle the server's
  * [acknowledgement](http://socket.io/docs/#sending-and-getting-data-%28acknowledgements%29) message, if any.
+ * @return {Promise|undefined} - _Browser only_ A Promise that is rejected if the first argument provided to the
+ * acknowledgement is an `Error`, otherwise it is resolved with the remaining arguments provided to the acknowledgement.
+ * But, if a callback was provided, this return value will be `undefined`, and there will be no Promise.
  */
-/* eslint-disable no-unused-vars */
 NodeCG.prototype.sendMessageToBundle = function (messageName, bundleName, data, cb) {
-	this.log.trace('[%s] Sending message %s to bundle %s with data:',
-		this.bundleName, messageName, bundleName, data);
+	this.log.trace('Sending message %s to bundle %s with data:', messageName, bundleName, data);
 
-	/* eslint-disable prefer-spread */
-	NodeCG.sendMessageToBundle.apply(NodeCG, arguments);
-	/* eslint-enable prefer-spread */
+	// eslint-disable-next-line prefer-spread, prefer-rest-params
+	return NodeCG.sendMessageToBundle.apply(NodeCG, arguments);
 };
 /* eslint-enable no-unused-vars */
 
@@ -286,46 +416,85 @@ NodeCG.prototype.sendMessageToBundle = function (messageName, bundleName, data, 
  * Messages are namespaced by bundle.
  * To listen to a message in another bundle's namespace, provide it as the second argument.
  *
+ * You may define multiple listenFor handlers for a given message.
+ * They will be called in the order they were registered.
+ *
  * @param {string} messageName - The name of the message.
  * @param {string} [bundleName=CURR_BNDL] - The bundle namespace to in which to listen for this message
- * @param {function} handler - The callback fired when this message is received.
+ * @param {function} handlerFunc - The callback fired when this message is received.
  *
  * @example
- * nodecg.listenFor('printMessage', function (message) {
+ * nodecg.listenFor('printMessage', message => {
  *     console.log(message);
  * });
  *
  * @example &lt;caption>Listening to a message in another bundle's namespace:&lt;/caption>
- * nodecg.listenFor('printMessage', 'another-bundle', function (message) {
+ * nodecg.listenFor('printMessage', 'another-bundle', message => {
  *     console.log(message);
  * });
  */
-NodeCG.prototype.listenFor = function (messageName, bundleName, handler) {
-	if (typeof handler === 'undefined') {
-		handler = bundleName;
+NodeCG.prototype.listenFor = function (messageName, bundleName, handlerFunc) {
+	if (typeof handlerFunc === 'undefined') {
+		handlerFunc = bundleName;
 		bundleName = this.bundleName;
 	}
 
-	if (typeof handler !== 'function') {
-		throw new Error(`argument "handler" must be a function, but you provided a(n) ${typeof handler}`);
+	if (typeof handlerFunc !== 'function') {
+		throw new Error(`argument "handler" must be a function, but you provided a(n) ${typeof handlerFunc}`);
 	}
 
-	this.log.trace('[%s] Listening for %s from bundle %s', this.bundleName, messageName, bundleName);
-
-	// Check if a handler already exists for this message
-	const len = this._messageHandlers.length;
-	for (let i = 0; i &lt; len; i++) {
-		const existingHandler = this._messageHandlers[i];
-		if (messageName === existingHandler.messageName &amp;&amp; bundleName === existingHandler.bundleName) {
-			throw new Error(`${this.bundleName} attempted to declare a duplicate "listenFor" handler: ${bundleName}:${messageName}`);
-		}
-	}
-
+	this.log.trace('Listening for %s from bundle %s', messageName, bundleName);
 	this._messageHandlers.push({
 		messageName,
 		bundleName,
-		func: handler
+		func: handlerFunc
 	});
+};
+
+/**
+ * Removes a listener for a message.
+ *
+ * Messages are namespaced by bundle.
+ * To remove a listener to a message in another bundle's namespace, provide it as the second argument.
+ *
+ * @param {string} messageName - The name of the message.
+ * @param {string} [bundleName=CURR_BNDL] - The bundle namespace to in which to listen for this message
+ * @param {function} handlerFunc - A reference to a handler function added as a listener to this message via {@link NodeCG#listenFor}.
+ * @returns {boolean}
+ *
+ * @example
+ * nodecg.unlisten('printMessage', someFunctionName);
+ *
+ * @example &lt;caption>Removing a listener from a message in another bundle's namespace:&lt;/caption>
+ * nodecg.unlisten('printMessage', 'another-bundle', someFunctionName);
+ */
+NodeCG.prototype.unlisten = function (messageName, bundleName, handlerFunc) {
+	if (typeof handlerFunc === 'undefined') {
+		handlerFunc = bundleName;
+		bundleName = this.bundleName;
+	}
+
+	if (typeof handlerFunc !== 'function') {
+		throw new Error(`argument "handler" must be a function, but you provided a(n) ${typeof handlerFunc}`);
+	}
+
+	this.log.trace('[%s] Removing listener for %s from bundle %s', this.bundleName, messageName, bundleName);
+
+	// Find the index of this handler in the array.
+	const index = this._messageHandlers.findIndex(handler => {
+		return handler.messageName === messageName &amp;&amp;
+			handler.bundleName === bundleName &amp;&amp;
+			handler.func === handlerFunc;
+	});
+
+	// If the handler exists, remove it and return true.
+	if (index >= 0) {
+		this._messageHandlers.splice(index, 1);
+		return true;
+	}
+
+	// Else, return false.
+	return false;
 };
 
 /**
@@ -365,6 +534,7 @@ NodeCG.Replicant = function (name, namespace, opts) {
  * applied if this Replicant has not previously been declared and if it has no persisted value.
  * @param {boolean} [opts.persistent=true] - Whether to persist the Replicant's value to disk on every change.
  * Persisted values are re-loaded on startup.
+ * @param {number} [opts.persistenceInterval=DEFAULT_PERSISTENCE_INTERVAL] - Interval between each persistence, in milliseconds.
  * @param {string} [opts.schemaPath] - The filepath at which to look for a JSON Schema for this Replicant.
  * Defaults to `nodecg/bundles/${bundleName}/schemas/${replicantName}.json`. Please note that this default
  * path will be URIEncoded to ensure that it results in a valid filename.
@@ -372,8 +542,8 @@ NodeCG.Replicant = function (name, namespace, opts) {
  * @example
  * const myRep = nodecg.Replicant('myRep', {defaultValue: 123});
  *
- * myRep.on('change', function(newValue, oldValue) {
- *     console.log('myRep changed from '+ oldValue +' to '+ newValue);
+ * myRep.on('change', (newValue, oldValue) => {
+ *     console.log(`myRep changed from ${oldValue} to ${newValue}`);
  * });
  *
  * myRep.value = 'Hello!';
@@ -418,6 +588,44 @@ NodeCG.readReplicant = function (name, namespace, cb) {
 };
 
 /**
+ * Lets you easily wait for a group of Replicants to finish declaring.
+ *
+ * Returns a promise which is resolved once all provided Replicants
+ * have emitted a `change` event, which is indicates that they must
+ * have finished declaring.
+ *
+ * This method is only useful in client-side code.
+ * Server-side code never has to wait for Replicants.
+ *
+ * @param replicants {Replicant}
+ * @returns {Promise&lt;any>}
+ *
+ * @example &lt;caption>From a graphic or dashboard panel:&lt;/caption>
+ * const rep1 = nodecg.Replicant('rep1');
+ * const rep2 = nodecg.Replicant('rep2');
+ *
+ * // You can provide as many Replicant arguments as you want,
+ * // this example just uses two Replicants.
+ * NodeCG.waitForReplicants(rep1, rep2).then(() => {
+ *     console.log('rep1 and rep2 are fully declared and ready to use!');
+ * });
+ */
+NodeCG.waitForReplicants = function (...replicants) {
+	return new Promise(resolve => {
+		const numReplicants = replicants.length;
+		let declaredReplicants = 0;
+		replicants.forEach(replicant => {
+			replicant.once('change', () => {
+				declaredReplicants++;
+				if (declaredReplicants >= numReplicants) {
+					resolve();
+				}
+			});
+		});
+	});
+};
+
+/**
  * Reads the value of a replicant once, and doesn't create a subscription to it. Also available as a static method.
  * @param {string} name - The name of the replicant.
  * @param {string} [bundle=CURR_BNDL] - The bundle namespace to in which to look for this replicant.
@@ -425,13 +633,13 @@ NodeCG.readReplicant = function (name, namespace, cb) {
  * @example &lt;caption>From an extension:&lt;/caption>
  * // Extensions have immediate access to the database of Replicants.
  * // For this reason, they can use readReplicant synchronously, without a callback.
- * module.exports = function(nodecg) {
+ * module.exports = function (nodecg) {
  *     var myVal = nodecg.readReplicant('myVar', 'some-bundle');
  * }
  * @example &lt;caption>From a graphic or dashboard panel:&lt;/caption>
  * // Graphics and dashboard panels must query the server to retrieve the value,
  * // and therefore must provide a callback.
- * nodecg.readReplicant('myRep', 'some-bundle', function(value) {
+ * nodecg.readReplicant('myRep', 'some-bundle', value => {
  *     // I can use 'value' now!
  *     console.log('myRep has the value '+ value +'!');
  * });
@@ -457,7 +665,9 @@ if (process.browser) {
 	 */
 	NodeCG.prototype.getDialog = function (name, bundle) {
 		bundle = bundle || this.bundleName;
-		return window.top.document.getElementById(`${bundle}_${name}`);
+		return window.top.document
+			.querySelector('ncg-dashboard').shadowRoot
+			.querySelector(`#dialogs #${bundle}_${name}`);
 	};
 
 	/**
@@ -591,7 +801,6 @@ if (process.browser) {
 	 * _Extension only_&lt;br/>
 	 * Object containing references to all other loaded extensions. To access another bundle's extension,
 	 * it _must_ be declared as a `bundleDependency` in your bundle's [`package.json`]{@tutorial manifest}.
-	 * @property {Object}
 	 * @name NodeCG#extensions
 	 *
 	 * @example
@@ -605,8 +814,8 @@ if (process.browser) {
      * }
 	 *
 	 * // bundles/my-bundle/extension.js
-	 * module.exports = function(nodecg) {
-     *     var otherBundle = nodecg.extensions['other-bundle'];
+	 * module.exports = function (nodecg) {
+     *     const otherBundle = nodecg.extensions['other-bundle'];
      *     // Now I can use `otherBundle`!
      * }
 	 */
@@ -619,6 +828,10 @@ if (process.browser) {
 }
 
 function _updateSoundCuesHas(ctx, soundCuesRep, customCuesRep) {
+	if (soundCuesRep.status !== 'declared' || customCuesRep.status !== 'declared') {
+		return;
+	}
+
 	if (soundCuesRep.value &amp;&amp; !customCuesRep.value) {
 		ctx._soundCues = soundCuesRep.value;
 		return;
@@ -646,7 +859,9 @@ function _registerSounds(ctx) {
 }
 
 function _setInstanceVolume(ctx, instance, cue) {
-	instance.volume = (ctx._masterVolume.value / 100) * (ctx._bundleVolume.value / 100) * (cue.volume / 100);
+	const volume = (ctx._masterVolume.value / 100) * (ctx._bundleVolume.value / 100) * (cue.volume / 100);
+	// Volue value must be finite or SoundJS throws error
+	instance.volume = isFinite(volume) ? volume : 0;
 }
 
 function _updateInstanceVolumes(ctx) {
@@ -658,6 +873,41 @@ function _updateInstanceVolumes(ctx) {
 			}
 		});
 	});
+}
+
+/**
+ * By default, Errors get serialized to empty objects when run through JSON.stringify.
+ * This function wraps an "acknowledgement" callback and checks if the first argument
+ * is an Error. If it is, that Error is serialized _before_ being sent off to Socket.IO
+ * for serialization to be sent across the wire.
+ * @param ack {Function}
+ * @private
+ * @ignore
+ * @returns {Function}
+ */
+function _wrapAcknowledgement(ack) {
+	let handled = false;
+	const wrappedAck = function (firstArg, ...restArgs) {
+		if (handled) {
+			throw new Error('Acknowledgement already handled');
+		}
+
+		handled = true;
+
+		if (isError(firstArg)) {
+			firstArg = serializeError(firstArg);
+		}
+
+		ack(firstArg, ...restArgs);
+	};
+
+	Object.defineProperty(wrappedAck, 'handled', {
+		get() {
+			return handled;
+		}
+	});
+
+	return wrappedAck;
 }
 
 module.exports = NodeCG;
@@ -673,16 +923,11 @@ module.exports = NodeCG;
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Mon Jun 12 2017 13:54:46 GMT-0500 (Central Daylight Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on Tue Jul 09 2019 00:13:57 GMT+0200 (GMT+02:00) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
 <script src="scripts/linenumber.js"></script>
-<script>
-  ((window.gitter = {}).chat = {}).options = {
-    room: 'nodecg/nodecg'
-  };
-</script>
-<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+<script src="scripts/currentpage.js"></script>
 </body>
 </html>

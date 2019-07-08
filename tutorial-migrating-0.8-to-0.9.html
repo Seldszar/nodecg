@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="https://raw.githubusercontent.com/nodecg/nodecg/master/src/favicon.ico">
-    <title>Sounds - Documentation</title>
+    <title>Migrating from 0.8 to 0.9 - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -42,7 +42,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Sounds</h1>
+    <h1 class="page-title">Migrating from 0.8 to 0.9</h1>
     
 
     <section>
@@ -52,51 +52,48 @@
 </header>
 
 <article>
-    <p>NodeCG features a system for management and playback of sound cues. To add sound cues to your bundle,
-create a <code>nodecg.soundCues</code> array in your <code>package.json</code>:</p>
-<pre class="prettyprint source lang-json"><code>{
-  &quot;name&quot;: &quot;test-bundle&quot;,
-  &quot;nodecg&quot;: {
-    &quot;soundCues&quot;: [
-      {
-        &quot;name&quot;: &quot;name-only&quot;
-      },
-      {
-        &quot;name&quot;: &quot;default-volume&quot;,
-        &quot;defaultVolume&quot;: 80
-      },
-      {
-        &quot;name&quot;: &quot;non-assignable&quot;,
-        &quot;assignable&quot;: false,
-        &quot;defaultFile&quot;: &quot;sound/default-file.ogg&quot;
-      },
-      {
-        &quot;name&quot;: &quot;default-file&quot;,
-        &quot;defaultFile&quot;: &quot;sound/default-file.ogg&quot;
-      },
-      {
-      	&quot;name&quot;: &quot;single-channel&quot;,
-      	&quot;channels&quot;: 1
-      }
-    ]
-  }
-}
-</code></pre>
-<p>Your bundle will now have a card on the Mixer page of the Dashboard.</p>
-<iframe src='https://gfycat.com/ifr/PrestigiousShyGoldeneye' frameborder='0' scrolling='no' width='640' height='426.6666666666667' allowfullscreen></iframe>
-<p><code>defaultFile</code>s are audio files that you ship with your bundle. They will be available to that specific cue as a
-&quot;Default&quot; option in that cue's dropdown select on the Mixer.</p>
-<p><code>channels</code> determines how many instances of a sound can be playing simultaneously. The default value is <code>100</code>. If set to <code>1</code>,
-only one instance can play at a time, and a new instance cannot be started until the currently playing instance has completed.</p>
-<p>If your bundle has at least one cue that is <code>assignable</code>, it will gain a &quot;Sounds&quot; <a href="tutorial-assets.html">Asset</a> category.
-This category accepts <code>.ogg</code> and <code>.mp3</code> files. Any audio files uploaded to this category will become available as options
-in all of your <code>assignable</code> cues' dropdown boxes.</p>
-<p>If your bundle has Sound Cues, the following API methods will be available to your graphic:</p>
+    <h2 id="breaking-changes">Breaking Changes</h2>
 <ul>
-<li><a href="NodeCG.html#playSound"><code>NodeCG#playSound</code></a></li>
-<li><a href="NodeCG.html#stopSound"><code>NodeCG#stopSound</code></a></li>
-<li><a href="NodeCG.html#stopAllSounds"><code>NodeCG#stopAllSounds</code></a></li>
+<li><a href="#routing-changes">Dashboard Panel, Graphics, and Bower Components routes have changed</a></li>
+<li><a href="#removed-default-styles">Most default styles and classes injected into Panels have been removed</a></li>
+<li><a href="#ack-errors">Errors sent to sendMessage acknowledgements (callbacks) will be properly serialized</a></li>
+<li><a href="#no-auto-deps"><code>npm</code> and <code>bower</code> dependencies are no longer automatically installed</a></li>
+<li><a href="#removed-rollbar-added-sentry">Removed Rollbar integration, replaced it with Sentry</a></li>
 </ul>
+<h3 id="routing-changes">Routing Changes</h3>
+<p>NodeCG's routing has always been a little arbitrary and confusing. It did not match the structure of the filesystem, and there wasn't really a good reason for this. This arbitrary routing structure was hard to remember and prevented bundle authors from taking advantage of their IDE's autocomplete functionality. It also made using filesystem-aware tools like the <a href="https://github.com/Polymer/polymer-bundler"><code>polymer-bundler</code></a> (formerly called <code>vulcanize</code>) needlessly difficult.</p>
+<p>The new routing structure matches the structure of the filesystem, making routes easier to work with and avoiding certain bugs relating to the de-duplication of HTML Imports (and soon, ES Modules).</p>
+<p>Old (don't use these anymore!):</p>
+<pre class="prettyprint source"><code>/panels/my-bundle/panel.html
+/graphics/my-bundle/graphic.html
+
+# Two different routes to the same file! This breaks the de-duplication of HTML Imports and causes errors.
+/panels/my-bundle/components/polymer/polymer.html
+/graphics/my-bundle/components/polymer/polymer.html
+</code></pre>
+<p>New:</p>
+<pre class="prettyprint source"><code>/bundles/my-bundle/dashboard/panel.html
+/bundles/my-bundle/graphics/graphic.html
+
+# Now, there is only one single route to any given file.
+/bundles/my-bundle/bower_components/polymer/polymer.html
+</code></pre>
+<h3 id="removed-default-styles">Removed Default Styles</h3>
+<p>Up until now, NodeCG has injected some default styles and helper classes into each and every panel. The idea was to provide a set of base styles that every bundle author could use to try to create a cohesive NodeCG panel design across all bundles.</p>
+<p>However, this set of styles was far too small and limited to achieve that, and upon further reflection we decided that NodeCG core was not the place to attempt to accomplish this. Additionally, it's possible for these injected styles to cause frustrating conflicts.</p>
+<p>NodeCG <em>does</em> still inject a few default styles, but the number of styles has been dramatically reduced to just a few necessary things, such as the background color for panels. And, as always, this value can be easily overridden in your panel's CSS.</p>
+<p>If your panels relied on any of these default styles or helper classes such as <code>nodecg-configure</code>, you will need to manually specify new styles instead.</p>
+<h3 id="ack-errors">sendMessage acknowledgement Errors</h3>
+<p>In the past, if you tried to reply to a <code>sendMessage</code> with an <code>Error</code>, you'd end up with just an empty Object at the other end (<code>{}</code>). This is because by default, JavaScript <code>Error</code>s are serialized as an empty Object by <code>JSON.stringify</code>.</p>
+<p>Now, if the first argument to a <a href="NodeCG.html#sendMessage"><code>NodeCG#sendMessage</code></a>  acknowledgement is an error, it will be properly serialized and sent across the wire. As part of this, we are now strongly encouraging that all <a href="NodeCG.html#sendMessage"><code>NodeCG#sendMessage</code></a> acknowledgements always be treated as standard error-first Node.js-style callbacks.</p>
+<p>In addition, client-side <a href="NodeCG.html#sendMessage"><code>NodeCG#sendMessage</code></a>  now also returns a <code>Promise</code>, so that you may use <code>.then</code>/<code>.catch</code> instead of a callback function. See the updated <a href="NodeCG.html#sendMessage"><code>NodeCG#sendMessage</code></a> documentation for more information.</p>
+<p>Please note that if you do not specify a callback to your <code>sendMessage</code>, then it will always return a Promise. Additionally, the first argument sent back in your acknowledgement is always assumed to be either an <code>Error</code> or <code>null</code>. If this value is truthy, then it will be used to <code>reject</code> the Promise. For this reason, it is strongly encouraged that all <code>sendMessage</code> acknowledgements strictly adhere to the error-first style of callbacks.</p>
+<h3 id="no-auto-deps">No Auto-Installation of Dependencies</h3>
+<p>Since the earliest versions of NodeCG, it has attempted to be helpful by automatically running both <code>npm install --production</code> and <code>bower install</code> on every installed bundle, every time you started up NodeCG. While some users may have found this helpful, over time we've come to realize that this was a misguided decision, and that installation of each bundle's dependencies should really be left to the user.</p>
+<p>The main rationale for the removal of this feature is that there's a lot more package managers out there than just <code>npm</code> and <code>bower</code>, and it's not reasonable for NodeCG to know about every single one of them and to be able to properly invoke them. The auto-dependency installation system made a lot of assumptions, and it's going to become more and more frequent that these assumptions just aren't valid. For example, if a bundle doesn't have a <code>bower.json</code>, then running <code>bower install</code> on it would actually have unintended side-effects. This is just one example that is easy to fix on its own, but there are many such examples of odd side-effects and unintended consequences of this automatic installation behavior. Together, they paint a clear picture that this feature was misguided, and should be removed.</p>
+<p>Going forward, users will always need to manually run whatever dependency installation steps are required by the bundle in question. For most bundles, this still means just running <code>npm install --production &amp;&amp; bower install</code>, but this will not always be the case. Each bundle will need to add their dependency installation steps to their READMEs, and make sure that users are educated in the fact that pulling down new updates to a bundle means that they may need to also install updated dependencies.</p>
+<h3 id="removed-rollbar-added-sentry">Removed Rollbar integration, replaced it with Sentry</h3>
+<p>In NodeCG v0.8, we introduced a first-class integration with the Rollbar error tracking service. This was very helpful and made NodeCG safer to use in production, but we were unhappy with the level of service and features that Rollbar provided. In NodeCG v0.9, we have removed the Rollbar integration and replaced it with a Sentry integration. See the <a href="tutorial-sentry.html">Sentry tutorial</a> for more info on how to set up Sentry in your NodeCG deployment.</p>
 </article>
 
 </section>

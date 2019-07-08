@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Tutorial: Migrating from 0.7 to 0.8 - Documentation</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="https://raw.githubusercontent.com/nodecg/nodecg/master/src/favicon.ico">
+    <title>Migrating from 0.7 to 0.8 - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -12,8 +14,20 @@
     <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    
+    <link type="text/css" rel="stylesheet" href="styles/github-corner.css">
+    
 </head>
 <body>
+
+<a href="https://github.com/nodecg/nodecg" class="github-corner" aria-label="View source on Github">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff;" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+
 
 <input type="checkbox" id="nav-trigger" class="nav-trigger" />
 <label for="nav-trigger" class="navicon-button x">
@@ -23,60 +37,70 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="NodeCG.html">NodeCG</a><ul class='methods'><li data-type='method'><a href="NodeCG.html#findCue">findCue</a></li><li data-type='method'><a href="NodeCG.html#getDialog">getDialog</a></li><li data-type='method'><a href="NodeCG.html#getDialogDocument">getDialogDocument</a></li><li data-type='method'><a href="NodeCG.html#getSocketIOServer">getSocketIOServer</a></li><li data-type='method'><a href="NodeCG.html#listenFor">listenFor</a></li><li data-type='method'><a href="NodeCG.html#log">log</a></li><li data-type='method'><a href="NodeCG.html#mount">mount</a></li><li data-type='method'><a href="NodeCG.html#playSound">playSound</a></li><li data-type='method'><a href="NodeCG.html#readReplicant">readReplicant</a></li><li data-type='method'><a href="NodeCG.html#Replicant">Replicant</a></li><li data-type='method'><a href="NodeCG.html#sendMessage">sendMessage</a></li><li data-type='method'><a href="NodeCG.html#sendMessageToBundle">sendMessageToBundle</a></li><li data-type='method'><a href="NodeCG.html#stopAllSounds">stopAllSounds</a></li><li data-type='method'><a href="NodeCG.html#stopSound">stopSound</a></li></ul></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-assets.html">Assets</a></li><li><a href="tutorial-bundle-configuration.html">Bundle Configuration</a></li><li><a href="tutorial-custom-routes.html">Custom Routes</a></li><li><a href="tutorial-making-dialogs.html">Making Dashboard Dialogs</a></li><li><a href="tutorial-manifest.html">package.json Manifest</a></li><li><a href="tutorial-migrating-0.7-to-0.8.html">Migrating from 0.7 to 0.8</a></li><li><a href="tutorial-nodecg-configuration.html">NodeCG Configuration</a></li><li><a href="tutorial-performance-tips.html">Performance Tips</a></li><li><a href="tutorial-portable-nodecg.html">Portable NodeCG</a></li><li><a href="tutorial-replicant-schemas.html">Replicant Validation</a></li><li><a href="tutorial-rollbar.html">Error Tracking with Rollbar</a></li><li><a href="tutorial-sounds.html">Sounds</a></li><li><a href="tutorial-using-bower.html">Using Bower Dependencies</a></li><li><a href="tutorial-using-npm.html">Using npm Dependencies</a></li></ul>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Tutorials</li><li class="nav-item"><a href="tutorial-1_what-is-nodecg.html">What is NodeCG?</a></li><li class="nav-item"><a href="tutorial-2_concepts-and-terminology.html">Concepts and Terminology</a></li><li class="nav-item"><a href="tutorial-3_quick-start.html">Quick Start</a></li><li class="nav-item"><a href="tutorial-4_security.html">Security & Authentication</a></li><li class="nav-item"><a href="tutorial-5_manifest.html">package.json Manifest</a></li><li class="nav-item"><a href="tutorial-6_nodecg-configuration.html">NodeCG Configuration</a></li><li class="nav-item"><a href="tutorial-7_using-npm.html">Using npm Dependencies</a></li><li class="nav-item"><a href="tutorial-8_using-bower.html">Using Bower Dependencies</a></li><li class="nav-item"><a href="tutorial-9_bundle-configuration.html">Bundle Configuration</a></li><li class="nav-item"><a href="tutorial-assets.html">Assets</a></li><li class="nav-item"><a href="tutorial-custom-routes.html">Custom Routes</a></li><li class="nav-item"><a href="tutorial-making-dialogs.html">Making Dashboard Dialogs</a></li><li class="nav-item"><a href="tutorial-migrating-0.7-to-0.8.html">Migrating from 0.7 to 0.8</a></li><li class="nav-item"><a href="tutorial-migrating-0.8-to-0.9.html">Migrating from 0.8 to 0.9</a></li><li class="nav-item"><a href="tutorial-migrating-0.9-to-1.0.html">Migrating from 0.9 to 1.0</a></li><li class="nav-item"><a href="tutorial-mounts.html">Mount folders as endpoints</a></li><li class="nav-item"><a href="tutorial-performance-tips.html">Performance Tips</a></li><li class="nav-item"><a href="tutorial-portable-nodecg.html">Portable NodeCG</a></li><li class="nav-item"><a href="tutorial-replicant-schemas.html">Replicant Validation</a></li><li class="nav-item"><a href="tutorial-screenshot-testing.html">Screenshot Testing Graphics</a></li><li class="nav-item"><a href="tutorial-sentry.html">Error Reporting with Sentry.io</a></li><li class="nav-item"><a href="tutorial-sounds.html">Sounds</a></li><li class="nav-item"><a href="tutorial-typescript.html">TypeScript</a></li><li class="nav-item"><a href="tutorial-using-bundlers.html">Using Bundlers</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="NodeCG.html">NodeCG</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#.waitForReplicants">waitForReplicants</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#findCue">findCue</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#getDialog">getDialog</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#getDialogDocument">getDialogDocument</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#getSocketIOServer">getSocketIOServer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#listenFor">listenFor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#log">log</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#mount">mount</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#playSound">playSound</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#readReplicant">readReplicant</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#Replicant">Replicant</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#sendMessage">sendMessage</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#sendMessageToBundle">sendMessageToBundle</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#stopAllSounds">stopAllSounds</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#stopSound">stopSound</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#unlisten">unlisten</a></span></li>
 </nav>
 
 <div id="main">
     
-    <h1 class="page-title">Tutorial: Migrating from 0.7 to 0.8</h1>
+    <h1 class="page-title">Migrating from 0.7 to 0.8</h1>
     
 
     <section>
 
 <header>
     
-
-    <h2>Migrating from 0.7 to 0.8</h2>
 </header>
 
 <article>
-    <h2>Breaking Changes</h2><ul>
+    <h2 id="breaking-changes">Breaking Changes</h2>
+<ul>
 <li><a href="#replicant-change-event">The order of arguments to the Replicant <code>change</code> event handler has been swapped</a></li>
 <li><a href="#panel-routes">Dashboard panels are now served from <code>/panel/:bundleName/:panelFile</code> routes</a></li>
 <li><a href="#assets-and-categories">Uploads have been renamed to Assets, now have Categories</a></li>
 </ul>
-<p><h3 id="replicant-change-event">Replicant Change Event</h3>
-Prior to NodeCG v0.8, the Replicant change handler had the following signature:</p>
-<pre class="prettyprint source lang-js"><code>// NodeCG v0.7 and earlier
-myRep.on('change', function (oldVal, newVal, changes) {});</code></pre><p>In v0.8, <code>newVal</code> and <code>oldVal</code> have been swapped, as <code>newVal</code> is frequently used whereas <code>oldVal</code> is less frequently used.</p>
+<h3 id="replicant-change-event">Replicant Change Event</h3>
+Prior to NodeCG v0.8, the Replicant change handler had the following signature:
+```js
+// NodeCG v0.7 and earlier
+myRep.on('change', function (oldVal, newVal, changes) {});
+```
+<p>In v0.8, <code>newVal</code> and <code>oldVal</code> have been swapped, as <code>newVal</code> is frequently used whereas <code>oldVal</code> is less frequently used.</p>
 <pre class="prettyprint source lang-js"><code>// NodeCG v0.8 and later
-myRep.on('change', function (newVal, oldVal, operations) {});</code></pre><p><h3 id="panel-routes">Panel Routes</h3>
-Dashboard panels are now served from <code>/panel/:bundleName/:panelFile</code> routes. Prior to v0.8, they were served from the
-<code>/panel/:bundleName/:panelName</code> route.</p>
+myRep.on('change', function (newVal, oldVal, operations) {});
+</code></pre>
+<h3 id="panel-routes">Panel Routes</h3>
+Dashboard panels are now served from `/panel/:bundleName/:panelFile` routes. Prior to v0.8, they were served from the
+`/panel/:bundleName/:panelName` route.
 <p>This means that for a panel with the following declaration:</p>
 <pre class="prettyprint source lang-json"><code>{
   &quot;name&quot;: &quot;test&quot;,
   &quot;title&quot;: &quot;Test Panel&quot;,
   &quot;width&quot;: 2,
   &quot;file&quot;: &quot;panel.html&quot;
-}</code></pre><p>... the route to access this panel is now <code>/panel/test-bundle/panel.html</code> instead of <code>/panel/test-bundle/test</code>.</p>
+}
+</code></pre>
+<p>... the route to access this panel is now <code>/panel/test-bundle/panel.html</code> instead of <code>/panel/test-bundle/test</code>.</p>
 <p>This also affects panels served from subfolders. Previously, the following panel:</p>
 <pre class="prettyprint source lang-json"><code>{
   &quot;name&quot;: &quot;test-dialog&quot;,
   &quot;title&quot;: &quot;Test Dialog&quot;,
   &quot;width&quot;: 2,
   &quot;file&quot;: &quot;dialogs/test-dialog.html&quot;
-}</code></pre><p>... would have been served from <code>/panel/test-bundle/test-dialog</code>. It is now served from <code>/panel/test-bundle/dialogs/test-dialog.html</code>.</p>
+}
+</code></pre>
+<p>... would have been served from <code>/panel/test-bundle/test-dialog</code>. It is now served from <code>/panel/test-bundle/dialogs/test-dialog.html</code>.</p>
 <p>If your panel or dialog is in a subfolder, you will need to update any relative links in your panel's HTML, CSS, and JS accordingly.
-For example, if <code>test-dialog</code> were importing <a href="https://elements.polymer-project.org/elements/paper-button?view=demo:demo/index.html"><code>&lt;paper-button&gt;</code></a>, 
+For example, if <code>test-dialog</code> were importing <a href="https://elements.polymer-project.org/elements/paper-button?view=demo:demo/index.html"><code>&lt;paper-button&gt;</code></a>,
 the URL it uses would have to change:</p>
 <pre class="prettyprint source lang-html"><code>&lt;!-- Won't work anymore. -->
 &lt;link rel=&quot;import&quot; href=&quot;components/paper-button/paper-button.html&quot;>
 
 &lt;!-- Works with the new panel routes. -->
-&lt;link rel=&quot;import&quot; href=&quot;../components/paper-button/paper-button.html&quot;></code></pre><p><h3 id="assets-and-categories">Assets &amp; Asset Categories</h3>
-NodeCG v0.7.2 introduced the Uploads system. NodeCG v0.8 has renamed this system to &quot;Assets&quot;, and introduces
-the concept of categories. See the <a href="tutorial-assets.html">Assets tutorial</a> for more information on how to configure Assets for your bundle.</p>
+&lt;link rel=&quot;import&quot; href=&quot;../components/paper-button/paper-button.html&quot;>
+</code></pre>
+<h3 id="assets-and-categories">Assets & Asset Categories</h3>
+NodeCG v0.7.2 introduced the Uploads system. NodeCG v0.8 has renamed this system to "Assets", and introduces
+the concept of categories. See the <a href="tutorial-assets.html">Assets tutorial</a> for more information on how to configure Assets for your bundle.
 </article>
 
 </section>
@@ -86,16 +110,11 @@ the concept of categories. See the <a href="tutorial-assets.html">Assets tutoria
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Mon Jun 12 2017 13:54:46 GMT-0500 (Central Daylight Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on Tue Jul 09 2019 00:13:57 GMT+0200 (GMT+02:00) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
 <script src="scripts/linenumber.js"></script>
-<script>
-  ((window.gitter = {}).chat = {}).options = {
-    room: 'nodecg/nodecg'
-  };
-</script>
-<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+<script src="scripts/currentpage.js"></script>
 </body>
 </html>

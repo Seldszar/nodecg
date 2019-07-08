@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="https://raw.githubusercontent.com/nodecg/nodecg/master/src/favicon.ico">
-    <title>Sounds - Documentation</title>
+    <title>NodeCG Configuration - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -42,7 +42,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Sounds</h1>
+    <h1 class="page-title">NodeCG Configuration</h1>
     
 
     <section>
@@ -52,51 +52,140 @@
 </header>
 
 <article>
-    <p>NodeCG features a system for management and playback of sound cues. To add sound cues to your bundle,
-create a <code>nodecg.soundCues</code> array in your <code>package.json</code>:</p>
+    <p>NodeCG is configured via a <code>cfg/nodecg.json</code> file with the following schema:</p>
+<h3 id="schema">Schema</h3>
+<ul>
+<li><code>host</code> <em>String</em> The IP address or hostname that NodeCG should bind to.</li>
+<li><code>port</code> <em>Integer</em> The port that NodeCG should listen on.</li>
+<li><code>baseURL</code> <em>String</em> The URL of this instance. Used for things like cookies. Defaults to HOST:PORT. If you use a reverse proxy, you'll likely need to set this value.</li>
+<li><code>developer</code> <em>Boolean</em> Whether to enable features that speed up development. Not suitable for production.</li>
+<li><code>exitOnUncaught</code> <em>Boolean</em> Whether or not to exit on uncaught exceptions.</li>
+<li><code>logging</code> <em>Object</em> Contains other configuration properties.
+<ul>
+<li><code>replicants</code> <em>Boolean</em> Whether to enable logging of the Replicants subsystem. Very spammy.</li>
+<li><code>console</code> <em>Object</em> Contains properties for console logging.
+<ul>
+<li><code>enabled</code> <em>Boolean</em> Whether to enable console logging.</li>
+<li><code>level</code> <em>String</em> Lowest importance of messages which should be logged. Must be <code>&quot;trace&quot;</code>, <code>&quot;debug&quot;</code>, <code>&quot;info&quot;</code>, <code>&quot;warn&quot;</code> or <code>&quot;error&quot;</code></li>
+</ul>
+</li>
+<li><code>file</code> <em>Object</em> Contains properties for file logging.
+<ul>
+<li><code>enabled</code> <em>Boolean</em> Whether to enable file logging.</li>
+<li><code>path</code> <em>String</em> The filepath to log to.</li>
+<li><code>level</code> <em>String</em> Lowest importance of messages which should be logged. Must be <code>&quot;trace&quot;</code>, <code>&quot;debug&quot;</code>, <code>&quot;info&quot;</code>, <code>&quot;warn&quot;</code> or <code>&quot;error&quot;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>bundles</code> <em>Object</em> Contains configuration for bundles.
+<ul>
+<li><code>enabled</code> <em>Array of strings</em> A whitelist array of bundle names that will be the only ones loaded at startup. Cannot be used with <code>bundles.disabled</code>.</li>
+<li><code>disabled</code> <em>Array of strings</em> A blacklist array of bundle names that will not be loaded at startup. Cannot be used with <code>bundles.enabled</code>.</li>
+</ul>
+</li>
+<li><code>login</code> <em>Object</em> Contains other configuration properties.
+<ul>
+<li><code>enabled</code> <em>Boolean</em> Whether to enable login security.</li>
+<li><code>sessionSecret</code> <em>String</em> The secret used to salt sessions.</li>
+<li><code>forceHttpsReturn</code> <em>Boolean</em> orces Steam &amp; Twitch login return URLs to use HTTPS instead of HTTP. Useful in reverse proxy setups.</li>
+<li><code>local</code> <em>Object</em> Contains local username &amp; password login configuration properties.
+<ul>
+<li><code>enabled</code> <em>Boolean</em> Whether to enable Local authentication.</li>
+<li><code>allowedUsers</code> <em>Array of objects</em> Which usernames and passwords to allow. Example: <code>{&quot;username&quot;: &quot;admin&quot;, &quot;password&quot;: &quot;foo123&quot;}</code></li>
+</ul>
+</li>
+<li><code>steam</code> <em>Object</em> Contains steam login configuration properties.
+<ul>
+<li><code>enabled</code> <em>Boolean</em> Whether to enable Steam authentication.</li>
+<li><code>apiKey</code> <em>String</em> A Steam API Key. Obtained from <a href="http://steamcommunity.com/dev/apikey">http://steamcommunity.com/dev/apikey</a></li>
+<li><code>allowedIds</code> <em>Array of strings</em> Which 64 bit Steam IDs to allow. Can be obtained from <a href="https://steamid.io/">https://steamid.io/</a></li>
+</ul>
+</li>
+<li><code>twitch</code> <em>Object</em> Contains twitch login configuration properties.
+<ul>
+<li><code>enabled</code> <em>Boolean</em> Whether to enable Twitch authentication.</li>
+<li><code>clientID</code> <em>String</em> A Twitch application ClientID <a href="http://twitch.tv/kraken/oauth2/clients/new">http://twitch.tv/kraken/oauth2/clients/new</a></li>
+<li><code>clientSecret</code> <em>String</em> A Twitch application ClientSecret <a href="http://twitch.tv/kraken/oauth2/clients/new">http://twitch.tv/kraken/oauth2/clients/new</a></li>
+<li><em>Note:</em> Configure your Twitch OAuth credentials with a Redirect URI to <code>{baseURL}/login/auth/twitch</code></li>
+<li><code>scope</code> <em>String</em> A space-separated string of Twitch application <a href="https://dev.twitch.tv/docs/authentication/#scopes">permissions</a>.</li>
+<li><code>allowedUsernames</code> <em>Array of strings</em> Which Twitch usernames to allow.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>ssl</code> <em>Object</em> Contains HTTPS/SSL configuration properties.
+<ul>
+<li><code>enabled</code> <em>Boolean</em> Whether to enable SSL/HTTPS encryption.</li>
+<li><code>allowHTTP</code> <em>Boolean</em> Whether to allow insecure HTTP connections while SSL is active.</li>
+<li><code>keyPath</code> <em>String</em> The path to an SSL key file.</li>
+<li><code>certificatePath</code> <em>String</em> The path to an SSL certificate file.</li>
+<li><code>passphrase</code> <em>String</em> The passphrase for the provided key file.</li>
+</ul>
+</li>
+<li><code>sentry</code> <em>Object</em> Contains <a href="https://sentry.io/support-class/">Sentry</a> configuration properties.
+<ul>
+<li><code>enabled</code> <em>Boolean</em> Whether to enable Sentry error reporting.</li>
+<li><code>dsn</code> <em>String</em> Your private DSN, for server-side error reporting.</li>
+<li><code>publicDsn</code> <em>String</em> Your public sentry DSN, for browser error reporting.</li>
+</ul>
+</li>
+</ul>
+<h3 id="example-config">Example Config</h3>
 <pre class="prettyprint source lang-json"><code>{
-  &quot;name&quot;: &quot;test-bundle&quot;,
-  &quot;nodecg&quot;: {
-    &quot;soundCues&quot;: [
-      {
-        &quot;name&quot;: &quot;name-only&quot;
-      },
-      {
-        &quot;name&quot;: &quot;default-volume&quot;,
-        &quot;defaultVolume&quot;: 80
-      },
-      {
-        &quot;name&quot;: &quot;non-assignable&quot;,
-        &quot;assignable&quot;: false,
-        &quot;defaultFile&quot;: &quot;sound/default-file.ogg&quot;
-      },
-      {
-        &quot;name&quot;: &quot;default-file&quot;,
-        &quot;defaultFile&quot;: &quot;sound/default-file.ogg&quot;
-      },
-      {
-      	&quot;name&quot;: &quot;single-channel&quot;,
-      	&quot;channels&quot;: 1
-      }
-    ]
-  }
+    &quot;host&quot;: &quot;0.0.0.0&quot;,
+    &quot;port&quot;: 9090,
+    &quot;developer&quot;: false,
+    &quot;bundles&quot;: {
+        &quot;enabled&quot;: [
+            &quot;bundle-name&quot;
+        ]
+    },
+    &quot;login&quot;: {
+        &quot;enabled&quot;: true,
+        &quot;sessionSecret&quot;: &quot;supersecret&quot;,
+        &quot;steam&quot;: {
+            &quot;enabled&quot;: true,
+            &quot;apiKey&quot;: &quot;YYYYY&quot;,
+            &quot;allowedIds&quot;: [
+                &quot;11111111111111111&quot;,
+                &quot;22222222222222222&quot;
+            ]
+        },
+        &quot;twitch&quot;: {
+            &quot;enabled&quot;: true,
+            &quot;clientID&quot;: &quot;your_app_id&quot;,
+            &quot;clientSecret&quot;: &quot;your_app_key&quot;,
+            &quot;scope&quot;: &quot;user_read&quot;,
+            &quot;allowedUsernames&quot;: [
+                &quot;some_username&quot;
+            ]
+        }
+    },
+    &quot;logging&quot;: {
+        &quot;replicants&quot;: false,
+        &quot;console&quot;: {
+            &quot;enabled&quot;: true,
+            &quot;level&quot;: &quot;trace&quot;
+        },
+        &quot;file&quot;: {
+            &quot;enabled&quot;: true,
+            &quot;path&quot;: &quot;logs/server.log&quot;,
+            &quot;level&quot;: &quot;info&quot;
+        }
+    },
+    &quot;ssl&quot;: {
+        &quot;enabled&quot;: false,
+        &quot;keyPath&quot;: &quot;&quot;,
+        &quot;certificatePath&quot;: &quot;&quot;
+    },
+    &quot;sentry&quot;: {
+        &quot;enabled&quot;: true,
+        &quot;dsn&quot;: &quot;https://xxx:yyy@sentry.io/zzz&quot;,
+        &quot;publicDsn&quot;: &quot;https://xxx@sentry.io/zzz&quot;
+    }
 }
 </code></pre>
-<p>Your bundle will now have a card on the Mixer page of the Dashboard.</p>
-<iframe src='https://gfycat.com/ifr/PrestigiousShyGoldeneye' frameborder='0' scrolling='no' width='640' height='426.6666666666667' allowfullscreen></iframe>
-<p><code>defaultFile</code>s are audio files that you ship with your bundle. They will be available to that specific cue as a
-&quot;Default&quot; option in that cue's dropdown select on the Mixer.</p>
-<p><code>channels</code> determines how many instances of a sound can be playing simultaneously. The default value is <code>100</code>. If set to <code>1</code>,
-only one instance can play at a time, and a new instance cannot be started until the currently playing instance has completed.</p>
-<p>If your bundle has at least one cue that is <code>assignable</code>, it will gain a &quot;Sounds&quot; <a href="tutorial-assets.html">Asset</a> category.
-This category accepts <code>.ogg</code> and <code>.mp3</code> files. Any audio files uploaded to this category will become available as options
-in all of your <code>assignable</code> cues' dropdown boxes.</p>
-<p>If your bundle has Sound Cues, the following API methods will be available to your graphic:</p>
-<ul>
-<li><a href="NodeCG.html#playSound"><code>NodeCG#playSound</code></a></li>
-<li><a href="NodeCG.html#stopSound"><code>NodeCG#stopSound</code></a></li>
-<li><a href="NodeCG.html#stopAllSounds"><code>NodeCG#stopAllSounds</code></a></li>
-</ul>
 </article>
 
 </section>

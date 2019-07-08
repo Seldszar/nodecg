@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="https://raw.githubusercontent.com/nodecg/nodecg/master/src/favicon.ico">
-    <title>Sounds - Documentation</title>
+    <title>Using Bundlers - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -42,7 +42,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Sounds</h1>
+    <h1 class="page-title">Using Bundlers</h1>
     
 
     <section>
@@ -52,51 +52,161 @@
 </header>
 
 <article>
-    <p>NodeCG features a system for management and playback of sound cues. To add sound cues to your bundle,
-create a <code>nodecg.soundCues</code> array in your <code>package.json</code>:</p>
+    <p>If you don't know why you should use bundlers, read up
+<a href="https://webpack.js.org/concepts/why-webpack/">Why webpack</a>.</p>
+<p>There are currently three JavaScript bundlers.</p>
+<ul>
+<li><a href="https://github.com/webpack/webpack">webpack</a>
+<ul>
+<li>By far the most used bundler with a lot of community made extensions</li>
+</ul>
+</li>
+<li><a href="https://github.com/rollup/rollup">rollup</a>
+<ul>
+<li>Primarily used by libraries like React, Vue</li>
+</ul>
+</li>
+<li><a href="https://github.com/parcel-bundler/parcel">parcel</a>
+<ul>
+<li>New bundler famous for zero-config, and super fast building process</li>
+</ul>
+</li>
+</ul>
+<p>These bundlers allows you to</p>
+<ul>
+<li>write modular, organised source code</li>
+<li>treat CSS, images, or any sort of files like JavaScript module</li>
+<li>use npm packages for front-end (dashboard/graphics)</li>
+<li>use JSX/TSX, Vue single file component</li>
+<li>write in other languages like TypeScript</li>
+<li>and many more</li>
+</ul>
+<p>This tutorial goes through the setup using parcel.</p>
+<h2 id="directory-structure">Directory Structure</h2>
+<p>Basically you will have parcel to output the whole <code>dashboard</code> and <code>graphics</code>
+directory. Your project would look like this</p>
+<pre class="prettyprint source"><code>foo-layouts
+|- extension
+|- schemas
+|- src
+|- package.json
+</code></pre>
+<p>When you run parcel, it will make <code>dashboard</code> and <code>graphics</code> directory and
+output bundle result into them.</p>
+<p>(After running parcel)</p>
+<pre class="prettyprint source"><code>foo-layouts
+|- extension
+|- schemas
+|- src
+|- package.json
+|- dashboard (built)
+  |- index.html
+  |- styles.8jx17sx.css
+  |- main.7x2hdjs.js
+|- graphics (built)
+  |- ds1.html
+  |- sd1.html
+  |- styles.03nsh2s.css
+  |- ds1.rssiahs.js
+  |- sd1.4jc71nx.js
+  |- background.d8frsis.png
+</code></pre>
+<p>The random string for each generated files are automatically generated to
+refresh cache when the files change.</p>
+<h2 id="setup">Setup</h2>
+<p>As I said, parcel is (literally) zero-configuration required. It even installs
+missing packages for you if there is any.</p>
+<h3 id="add-parcel-to-your-bundle">Add parcel to your bundle</h3>
+<h4 id="locally">Locally</h4>
+<pre class="prettyprint source lang-sh"><code>npm install --save-dev parcel-bundler
+# or
+yarn add -D parcel-bundler
+</code></pre>
+<p>The <code>parcel</code> command will be available locally. You can run it either adding
+npm scripts, or <code>npx parcel</code>/<code>yarn parcel</code>.</p>
+<h4 id="globally">Globally</h4>
+<pre class="prettyprint source lang-sh"><code>npm install -g parcel-bundler
+# or
+yarn global add parcel-bundler
+</code></pre>
+<p>With this, <code>parcel</code> command should be available globally. Just run <code>parcel</code> to
+run the bundler.</p>
+<h3 id="make-an-entrypoint">Make an entrypoint</h3>
+<p>When building front-end, HTML file is usually used as entrypoint. You can just
+use your HTML file with your scripts and stylesheets imported.</p>
+<pre class="prettyprint source lang-html"><code>&lt;!DOCTYPE html>
+&lt;html>
+  &lt;head>
+    &lt;meta charset=&quot;utf-8&quot; />
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;./styles.css&quot;>
+  &lt;/head>
+
+  &lt;body>
+    &lt;div id=&quot;tech&quot;>&lt;/div>
+    &lt;!-- Or a lot of pre-defined elements -->
+    &lt;script src=&quot;./index.js&quot;>&lt;/script>
+  &lt;/body>
+&lt;/html>
+</code></pre>
+<p>The entrypoint HTML file will also be compiled in the bundler. So you can many
+kind of files in the <code>script</code> tag. Parcel will automatically detect file format
+and use appropriate library/compiler to bundle the file.</p>
+<pre class="prettyprint source lang-html"><code>&lt;script src=&quot;./main.coffee&quot;>&lt;/script>
+</code></pre>
+<pre class="prettyprint source lang-html"><code>&lt;script src=&quot;./app.tsx&quot;>&lt;/script>
+</code></pre>
+<p>Or the entrypoint doesn't even have to be an HTML file. For example, you can use
+Pug to have common parts of HTML file into one file.</p>
+<pre class="prettyprint source lang-pug"><code>doctype html
+html
+  head
+    title graphics-ds
+    include lib/common.pug
+  body
+    div(id=&quot;ds&quot;)
+    script(src=&quot;./views/ds.ts&quot;)
+</code></pre>
+<h3 id="run-the-command">Run the command</h3>
+<p>For development, with file change detection and hot-reloading:</p>
+<pre class="prettyprint source lang-sh"><code>parcel watch src/dashboard/index.html --out-dir dashboard --public-url ./
+</code></pre>
+<p>For production build, with optimized output:</p>
+<pre class="prettyprint source lang-sh"><code>parcel build src/dashboard/index.html --out-dir dashboard --public-url ./
+</code></pre>
+<p>(Replace <code>src/dashboard/index.html</code> with your entrypoint files.)</p>
+<p>You can use glob pattern to use multiple entrypoints, if you have multiple pages
+to compile</p>
+<pre class="prettyprint source lang-sh"><code>parcel build src/graphics/*.html --out-dir dashboard --public-url ./
+</code></pre>
+<p>Details described in <a href="https://parceljs.org/cli.html">the reference</a>.</p>
+<h3 id="recommended-configuration">Recommended Configuration</h3>
+<p>Even though it already works for most cases (!), a bit of configuration might be
+recommended/required.</p>
+<h4 id="browserslist">browserslist</h4>
+<p>Parcel uses <a href="https://babeljs.io/">babel</a> out of box, and the default supported
+browsers are <code>&gt;0.25%</code> which includes old browsers like IE.</p>
+<p>Considering how NodeCG is used, it's the best to target only modern browsers or
+just Chrome. To do so, add <code>browserslist</code> property to <code>package.json</code>.</p>
+<p>For example,</p>
 <pre class="prettyprint source lang-json"><code>{
-  &quot;name&quot;: &quot;test-bundle&quot;,
-  &quot;nodecg&quot;: {
-    &quot;soundCues&quot;: [
-      {
-        &quot;name&quot;: &quot;name-only&quot;
-      },
-      {
-        &quot;name&quot;: &quot;default-volume&quot;,
-        &quot;defaultVolume&quot;: 80
-      },
-      {
-        &quot;name&quot;: &quot;non-assignable&quot;,
-        &quot;assignable&quot;: false,
-        &quot;defaultFile&quot;: &quot;sound/default-file.ogg&quot;
-      },
-      {
-        &quot;name&quot;: &quot;default-file&quot;,
-        &quot;defaultFile&quot;: &quot;sound/default-file.ogg&quot;
-      },
-      {
-      	&quot;name&quot;: &quot;single-channel&quot;,
-      	&quot;channels&quot;: 1
-      }
-    ]
-  }
+  // ...
+  &quot;browserslist&quot;: &quot;last 2 chrome versions&quot;,
+  &quot;nodecg&quot;: //...
 }
 </code></pre>
-<p>Your bundle will now have a card on the Mixer page of the Dashboard.</p>
-<iframe src='https://gfycat.com/ifr/PrestigiousShyGoldeneye' frameborder='0' scrolling='no' width='640' height='426.6666666666667' allowfullscreen></iframe>
-<p><code>defaultFile</code>s are audio files that you ship with your bundle. They will be available to that specific cue as a
-&quot;Default&quot; option in that cue's dropdown select on the Mixer.</p>
-<p><code>channels</code> determines how many instances of a sound can be playing simultaneously. The default value is <code>100</code>. If set to <code>1</code>,
-only one instance can play at a time, and a new instance cannot be started until the currently playing instance has completed.</p>
-<p>If your bundle has at least one cue that is <code>assignable</code>, it will gain a &quot;Sounds&quot; <a href="tutorial-assets.html">Asset</a> category.
-This category accepts <code>.ogg</code> and <code>.mp3</code> files. Any audio files uploaded to this category will become available as options
-in all of your <code>assignable</code> cues' dropdown boxes.</p>
-<p>If your bundle has Sound Cues, the following API methods will be available to your graphic:</p>
+<p>Refer to <a href="https://github.com/browserslist/browserslist#full-list">this page</a> for
+detailed <code>browserslist</code> syntax.</p>
+<h3 id="going-further">Going further</h3>
+<p>Due to the huge amount of features parcel offers out of box, at this point you
+already have a lot more options for your front-end development. For example:</p>
 <ul>
-<li><a href="NodeCG.html#playSound"><code>NodeCG#playSound</code></a></li>
-<li><a href="NodeCG.html#stopSound"><code>NodeCG#stopSound</code></a></li>
-<li><a href="NodeCG.html#stopAllSounds"><code>NodeCG#stopAllSounds</code></a></li>
+<li>React development with JSX/TSX</li>
+<li>Vue single file component</li>
+<li>TypeScript or other alternative languages</li>
 </ul>
+<p>Also, if your project becomes too advanced for parcel to handle, you can switch
+to webpack. It produces a bit more optimized code, and has a lot more features
+supported.</p>
 </article>
 
 </section>

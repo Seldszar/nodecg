@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="https://raw.githubusercontent.com/nodecg/nodecg/master/src/favicon.ico">
-    <title>Sounds - Documentation</title>
+    <title>package.json Manifest - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -42,7 +42,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Sounds</h1>
+    <h1 class="page-title">package.json Manifest</h1>
     
 
     <section>
@@ -52,51 +52,107 @@
 </header>
 
 <article>
-    <p>NodeCG features a system for management and playback of sound cues. To add sound cues to your bundle,
-create a <code>nodecg.soundCues</code> array in your <code>package.json</code>:</p>
-<pre class="prettyprint source lang-json"><code>{
-  &quot;name&quot;: &quot;test-bundle&quot;,
+    <p>Every bundle must have a <a href="https://docs.npmjs.com/files/package.json"><code>package.json</code></a>. In addition to the required fields
+like <code>name</code> and <code>version</code> outlined in that link, NodeCG bundles must also have a <code>nodecg</code> object in their <code>package.json</code>
+with some additional properties that tell NodeCG about the bundle and how to load it.</p>
+<p>The <code>nodecg</code> object in a bundle's <code>package.json</code> must follow this structure:</p>
+<pre class="prettyprint source"><code>{
+  &quot;name&quot;: &quot;example-bundle&quot;,
+  ...
   &quot;nodecg&quot;: {
-    &quot;soundCues&quot;: [
+    &quot;compatibleRange&quot;: &quot;~0.7.0&quot;,
+    &quot;bundleDependencies&quot;: {
+      &quot;other-bundle&quot;: &quot;^1.2.1&quot;
+    },
+    &quot;dashboardPanels&quot;: [
       {
-        &quot;name&quot;: &quot;name-only&quot;
+        &quot;name&quot;: &quot;sample-panel&quot;,
+        &quot;title&quot;: &quot;Sample Panel&quot;,
+        &quot;width&quot;: 2,
+        &quot;headerColor&quot;: &quot;#2d4e8a&quot;,
+        &quot;file&quot;: &quot;sample-panel.html&quot;
       },
       {
-        &quot;name&quot;: &quot;default-volume&quot;,
-        &quot;defaultVolume&quot;: 80
+        &quot;name&quot;: &quot;sample-dialog&quot;,
+        &quot;title&quot;: &quot;Sample Dialog&quot;,
+        &quot;width&quot;: 2,
+        &quot;dialog&quot;: true,
+        &quot;dialogButtons&quot;: [
+          {
+            &quot;name&quot;: &quot;save&quot;,
+            &quot;type&quot;: &quot;confirm&quot;
+          },
+          {
+            &quot;name&quot;: &quot;cancel&quot;,
+            &quot;type&quot;: &quot;dismiss&quot;
+          }
+        ],
+        &quot;file&quot;: &quot;sample-dialog.html&quot;
       },
       {
-        &quot;name&quot;: &quot;non-assignable&quot;,
-        &quot;assignable&quot;: false,
-        &quot;defaultFile&quot;: &quot;sound/default-file.ogg&quot;
+        &quot;name&quot;: &quot;custom-workspace&quot;,
+        &quot;title&quot;: &quot;Custom Workspace Panel&quot;,
+        &quot;width&quot;: 4,
+        &quot;file&quot;: &quot;custom-workspace.html&quot;,
+        &quot;workspace&quot;: &quot;My Workspace&quot;
       },
       {
-        &quot;name&quot;: &quot;default-file&quot;,
-        &quot;defaultFile&quot;: &quot;sound/default-file.ogg&quot;
-      },
+        &quot;name&quot;: &quot;fullbleed-panel&quot;,
+        &quot;title&quot;: &quot;Fullbleed Panel&quot;,
+        &quot;fullbleed&quot;: true
+      }
+    ],
+    &quot;graphics&quot;: [
       {
-      	&quot;name&quot;: &quot;single-channel&quot;,
-      	&quot;channels&quot;: 1
+        &quot;file&quot;: &quot;index.html&quot;,
+        &quot;width&quot;: 1280,
+        &quot;height&quot;: 720,
+        &quot;singleInstance&quot;: false
       }
     ]
   }
+  ...
 }
 </code></pre>
-<p>Your bundle will now have a card on the Mixer page of the Dashboard.</p>
-<iframe src='https://gfycat.com/ifr/PrestigiousShyGoldeneye' frameborder='0' scrolling='no' width='640' height='426.6666666666667' allowfullscreen></iframe>
-<p><code>defaultFile</code>s are audio files that you ship with your bundle. They will be available to that specific cue as a
-&quot;Default&quot; option in that cue's dropdown select on the Mixer.</p>
-<p><code>channels</code> determines how many instances of a sound can be playing simultaneously. The default value is <code>100</code>. If set to <code>1</code>,
-only one instance can play at a time, and a new instance cannot be started until the currently playing instance has completed.</p>
-<p>If your bundle has at least one cue that is <code>assignable</code>, it will gain a &quot;Sounds&quot; <a href="tutorial-assets.html">Asset</a> category.
-This category accepts <code>.ogg</code> and <code>.mp3</code> files. Any audio files uploaded to this category will become available as options
-in all of your <code>assignable</code> cues' dropdown boxes.</p>
-<p>If your bundle has Sound Cues, the following API methods will be available to your graphic:</p>
-<ul>
-<li><a href="NodeCG.html#playSound"><code>NodeCG#playSound</code></a></li>
-<li><a href="NodeCG.html#stopSound"><code>NodeCG#stopSound</code></a></li>
-<li><a href="NodeCG.html#stopAllSounds"><code>NodeCG#stopAllSounds</code></a></li>
-</ul>
+<h2 id="nodecg.compatiblerange">nodecg.compatibleRange</h2>
+<p>A <a href="http://semver.org/">semver</a> range that defines which version(s) of NodeCG this bundle is compatible with.
+This bundle will not load in NodeCG versions outside the specified range.</p>
+<p>This field is required.</p>
+<h2 id="nodecg.bundledependencies">nodecg.bundleDependencies</h2>
+<p>Formatted identically to npm's <code>dependencies</code> field, but behaves differently.
+Bundles declared as <code>bundleDependencies</code> are not automatically installed.
+This field's only job is to ensure that dependant bundles are loaded first.
+In the above example, <code>other-bundle</code> would be loaded before <code>example-bundle</code>, and if <code>other-bundle</code> fails to load
+then so will <code>example-bundle</code>.</p>
+<p>This field is only required if your bundle makes use of <a href="NodeCG.html#extensions"><code>NodeCG#extensions</code></a>.</p>
+<h2 id="nodecg.dashboardpanels">nodecg.dashboardPanels</h2>
+<p>An array of objects, each object describing an individual dashboard panel or dialog.
+Every panel and dialog must have a <code>name</code>, <code>title</code>, and <code>file</code>. <code>file</code> is relative to the bundle's <code>dashboard</code> folder.
+<code>width</code> is optional, and defaults to <code>2</code>. The width scale is arbitrary and may change,
+so you'll want to play around with this number to get the desired width.</p>
+<p>Panels also have an optional <code>headerColor</code> property that accepts a hex color string.</p>
+<p>You can split your panels up into multiple <code>workspace</code>s. By default all panels are added to the same workspace.
+If you'd like to specify a different workspace, simply provide a workspace name as the <code>workspace</code> property.
+Workspaces work across bundles. If <code>my-bundle</code> and <code>your-bundle</code> both declare a panel in the <code>Shared Workspace</code>
+workspace, then both of our panels will show up together.</p>
+<p>If you have a really big panel that simply needs to be in its own workspace and have maximized screenspace, give it
+the <code>fullbleed</code> property. Fullbleed panels are put into their own workspace and have no margins around them. This is
+good for when you have a large, complex UI that you need more fine-grained control over.</p>
+<iframe src='https://gfycat.com/ifr/SarcasticDeterminedFugu' frameborder='0' scrolling='no' width='640' height='402' allowfullscreen></iframe>
+<p>To mark a panel as a dialog, it must have the <code>dialog</code> property set to <code>true</code>. Dialogs don't immediately display on the
+dashboard, and must be manually invoked. See <a href="tutorial-making-dialogs.html">Making Dashboard Dialogs</a> for more info.
+(<a href="http://i.imgur.com/xA4mDvF.png">Screenshot of an open dialog</a>)</p>
+<p>Dialogs have special buttons for confirmation and dismissal, which are defined in the <code>dialogButtons</code> property.
+There are only two types of dialogButton: <code>confirm</code> and <code>dismiss</code>. When one of these buttons is pressed, a
+<code>dialog-confirmed</code> or <code>dialog-dismissed</code> event is emitted on the dialog's <code>document</code> to allow for easy handling with
+less boilerplate.</p>
+<p>This field is only required if your bundle has dashboard panels.</p>
+<h2 id="nodecg.graphics">nodecg.graphics</h2>
+<p>An array of objects, each object describing a graphic.
+Each graphic must have a <code>file</code>, <code>width</code>, and <code>height</code>. <code>file</code> is relative to the bundle's <code>graphics</code> folder.
+If you wish to enforce that your graphic only ever be open in one place at a time, set <code>singleInstance</code> to <code>true</code>
+(defaults to <code>false</code>).</p>
+<p>This field is only required if your bundle has graphics.</p>
 </article>
 
 </section>

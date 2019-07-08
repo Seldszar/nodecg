@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="https://raw.githubusercontent.com/nodecg/nodecg/master/src/favicon.ico">
-    <title>Sounds - Documentation</title>
+    <title>Mount folders as endpoints - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -42,7 +42,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Sounds</h1>
+    <h1 class="page-title">Mount folders as endpoints</h1>
     
 
     <section>
@@ -52,51 +52,23 @@
 </header>
 
 <article>
-    <p>NodeCG features a system for management and playback of sound cues. To add sound cues to your bundle,
-create a <code>nodecg.soundCues</code> array in your <code>package.json</code>:</p>
+    <p>As of v0.9.9, NodeCG supports a <code>nodecg.mount</code> array in your bundle's <code>package.json</code>. These <code>mount</code> declarations are simple objects with two keys: <code>directory</code> and <code>endpoint</code>.</p>
+<p><code>directory</code> is a relative path from the root of your bundle which tells NodeCG which folder you'd like to mount as a custom endpoint.</p>
+<p><code>endpoint</code> is a URL relative to <code>http://localhost:9090/bundles/${bundle.name}/</code> which tells NodeCG what URL you'd like to serve your <code>directory</code> from (Of course, substitute <code>localhost</code> and <code>9090</code> with whatever <code>host</code> and <code>port</code> your NodeCG instance is configured to use).</p>
 <pre class="prettyprint source lang-json"><code>{
   &quot;name&quot;: &quot;test-bundle&quot;,
   &quot;nodecg&quot;: {
-    &quot;soundCues&quot;: [
+    &quot;mount&quot;: [
       {
-        &quot;name&quot;: &quot;name-only&quot;
-      },
-      {
-        &quot;name&quot;: &quot;default-volume&quot;,
-        &quot;defaultVolume&quot;: 80
-      },
-      {
-        &quot;name&quot;: &quot;non-assignable&quot;,
-        &quot;assignable&quot;: false,
-        &quot;defaultFile&quot;: &quot;sound/default-file.ogg&quot;
-      },
-      {
-        &quot;name&quot;: &quot;default-file&quot;,
-        &quot;defaultFile&quot;: &quot;sound/default-file.ogg&quot;
-      },
-      {
-      	&quot;name&quot;: &quot;single-channel&quot;,
-      	&quot;channels&quot;: 1
+        &quot;directory&quot;: &quot;custom-dir&quot;,
+        &quot;endpoint&quot;: &quot;my-mount-endpoint&quot;
       }
     ]
   }
 }
 </code></pre>
-<p>Your bundle will now have a card on the Mixer page of the Dashboard.</p>
-<iframe src='https://gfycat.com/ifr/PrestigiousShyGoldeneye' frameborder='0' scrolling='no' width='640' height='426.6666666666667' allowfullscreen></iframe>
-<p><code>defaultFile</code>s are audio files that you ship with your bundle. They will be available to that specific cue as a
-&quot;Default&quot; option in that cue's dropdown select on the Mixer.</p>
-<p><code>channels</code> determines how many instances of a sound can be playing simultaneously. The default value is <code>100</code>. If set to <code>1</code>,
-only one instance can play at a time, and a new instance cannot be started until the currently playing instance has completed.</p>
-<p>If your bundle has at least one cue that is <code>assignable</code>, it will gain a &quot;Sounds&quot; <a href="tutorial-assets.html">Asset</a> category.
-This category accepts <code>.ogg</code> and <code>.mp3</code> files. Any audio files uploaded to this category will become available as options
-in all of your <code>assignable</code> cues' dropdown boxes.</p>
-<p>If your bundle has Sound Cues, the following API methods will be available to your graphic:</p>
-<ul>
-<li><a href="NodeCG.html#playSound"><code>NodeCG#playSound</code></a></li>
-<li><a href="NodeCG.html#stopSound"><code>NodeCG#stopSound</code></a></li>
-<li><a href="NodeCG.html#stopAllSounds"><code>NodeCG#stopAllSounds</code></a></li>
-</ul>
+<p>The above example will make the contents of <code>nodecg/bundles/test-bundle/custom-dir</code> accessible via <code>http://localhost:9090/bundles/test-bundle/my-mount-endpoint</code>. These endpoints behave similarly to how <a href="https://expressjs.com/en/starter/static-files.html">Express' <code>static</code> method</a> serves static files from folders.</p>
+<p>For example, if <code>custom-dir</code> contains a file called <code>hello-world.html</code>, that file can be accessed via the URL <code>http://localhost:9090/bundles/test-bundle/my-mount-endpoint/hello-world.html</code>.</p>
 </article>
 
 </section>

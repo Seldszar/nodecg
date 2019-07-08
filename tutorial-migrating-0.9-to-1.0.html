@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="https://raw.githubusercontent.com/nodecg/nodecg/master/src/favicon.ico">
-    <title>Sounds - Documentation</title>
+    <title>Migrating from 0.9 to 1.0 - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -42,7 +42,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Sounds</h1>
+    <h1 class="page-title">Migrating from 0.9 to 1.0</h1>
     
 
     <section>
@@ -52,51 +52,74 @@
 </header>
 
 <article>
-    <p>NodeCG features a system for management and playback of sound cues. To add sound cues to your bundle,
-create a <code>nodecg.soundCues</code> array in your <code>package.json</code>:</p>
-<pre class="prettyprint source lang-json"><code>{
-  &quot;name&quot;: &quot;test-bundle&quot;,
-  &quot;nodecg&quot;: {
-    &quot;soundCues&quot;: [
-      {
-        &quot;name&quot;: &quot;name-only&quot;
-      },
-      {
-        &quot;name&quot;: &quot;default-volume&quot;,
-        &quot;defaultVolume&quot;: 80
-      },
-      {
-        &quot;name&quot;: &quot;non-assignable&quot;,
-        &quot;assignable&quot;: false,
-        &quot;defaultFile&quot;: &quot;sound/default-file.ogg&quot;
-      },
-      {
-        &quot;name&quot;: &quot;default-file&quot;,
-        &quot;defaultFile&quot;: &quot;sound/default-file.ogg&quot;
-      },
-      {
-      	&quot;name&quot;: &quot;single-channel&quot;,
-      	&quot;channels&quot;: 1
-      }
-    ]
-  }
+    <h2 id="breaking-changes">Breaking Changes</h2>
+<ul>
+<li><a href="#dialog-handlers"><strong>dashboard</strong>: The undocumented <code>[dialog-confirm]</code> and <code>[dialog-dismiss]</code> attribute click handlers have been removed.</a></li>
+<li><a href="#panel-click"><strong>dashboard</strong>: The undocumented (and broken) <code>panelClick</code> event has been removed.</a></li>
+<li><a href="#custom-cues"><strong>sounds:</strong> The undocumented customCues system has been removed.</a></li>
+<li><a href="#multiple-listeners"><strong>api:</strong> A given context (server, client) can now declare multiple listenFor handlers for a given message. Handlers are called in the order they were registered.</a></li>
+<li><a href="#intra-context-messaging"><strong>api:</strong> sendMessage can now trigger listenFor handlers in the same context (extension, webpage, etc).</a></li>
+<li><a href="#twitch-api"><strong>login:</strong> Twitch auth now uses the &quot;New Twitch API&quot;, instead of the deprecated &quot;v5&quot; API.</a></li>
+</ul>
+<h3 id="undocumented-%5Bdialog-confirm%5D-and-%5Bdialog-dismiss%5D-attribute-click-handlers-have-been-removed"><a name="dialog-handlers"></a> Undocumented <code>[dialog-confirm]</code> and <code>[dialog-dismiss]</code> attribute click handlers have been removed</h3>
+<p>Previously, NodeCG had an undocumented feature where <em>any</em> element in a Dialog with a <code>[dialog-confirm]</code> or <code>[dialog-dismiss]</code> attribute would close the panel (with an appropriate <code>confirmed</code> or <code>dismissed</code> event) when clicked.</p>
+<p>This undocumented feature has been removed. If your bundle relied on it, you will need to re-implement similar functionality in your bundle's code.</p>
+<h3 id="undocumented-(and-broken)-panelclick-event-has-been-removed"><a name="panel-click"></a> Undocumented (and broken) <code>panelClick</code> event has been removed</h3>
+<p>Previously, NodeCG had an undocumented feature where any click event on any panel (or dialog) would emit a <code>panelClick</code> event on that panel's <code>document</code>.</p>
+<p>This undocumented feature has been removed, and never really worked properly to begin with. If your bundle relied on it, you will need to re-implement similar functionality in your bundle's code.</p>
+<h3 id="undocumented-customcues-system-has-been-removed"><a name="custom-cues"></a> Undocumented customCues system has been removed</h3>
+<p>Previously, NodeCG had an undocumented and extremely complex feature for defining and editing Sound Cues during runtime.</p>
+<p>This undocumented feature has been removed. If your bundle relied on it, you will need to re-implement similar functionality in your bundle's code.</p>
+<h3 id="multiple-listenfor-handlers-for-a-given-message"><a name="multiple-listeners"></a> Multiple listenFor handlers for a given message</h3>
+<p>Previously, NodeCG only allowed your bundle to specify one <code>listenFor</code> handler, per message, per context.</p>
+<p>Now, NodeCG lets you define as many <code>listenFor</code> handlers as you want, for any message, in any location.</p>
+<p>However, server-side <code>listenFor</code> handlers must be careful to not call an <code>acknowledgement</code> more than once:</p>
+<pre class="prettyprint source lang-js"><code>// nodecg/bundles/your-bundle
+module.exports = function (nodecg) {
+    nodecg.listenFor('example', (data, ack) => {
+        if (ack && !ack.handled) {
+            ack('foo');
+        }
+    });
+};
+</code></pre>
+<pre class="prettyprint source lang-html"><code>&lt;!-- nodecg/bundles/your-bundle/graphics/example.html -->
+&lt;script>
+nodecg.sendMessage('example', 'hello', (error, response) => {
+    console.log(response); // => Will log &quot;foo&quot;.
+});
+&lt;/script>
+</code></pre>
+<p>Calling an <code>acknowledgement</code> more than once will throw an error.</p>
+<p>In short: <strong>most bundles won't need to change any of their code</strong> to be compatible with this change, but you should give everything a once-over to make sure things aren't behaving unexpectedly due to this new behavior.</p>
+<h3 id="sendmessage-can-now-trigger-listenfor-handlers-in-the-same-context"><a name="intra-context-messaging"></a> sendMessage can now trigger listenFor handlers in the same context</h3>
+<p>Previously, NodeCG messages were inter-context only. That meant that they were <em>only</em> sent out over the network, and were not sent to other listeners in the same process context (extension, graphic, panel, etc).</p>
+<p>Now, NodeCG sends messages to every listener, regardless of location. This means that code like the following will now work as expected:</p>
+<pre class="prettyprint source lang-js"><code>// nodecg/bundles/your-bundle/extension.js
+module.exports = function (nodecg) {
+    nodecg.sendMessage('hello', 'Hi there!');
+};
+</code></pre>
+<pre class="prettyprint source lang-js"><code>// nodecg/bundles/my-bundle/extension.js
+module.exports = function (nodecg) {
+    nodecg.listenFor('hello', 'your-bundle', data => {
+        console.log(data); // => Will print &quot;Hi there!&quot;
+    });
 }
 </code></pre>
-<p>Your bundle will now have a card on the Mixer page of the Dashboard.</p>
-<iframe src='https://gfycat.com/ifr/PrestigiousShyGoldeneye' frameborder='0' scrolling='no' width='640' height='426.6666666666667' allowfullscreen></iframe>
-<p><code>defaultFile</code>s are audio files that you ship with your bundle. They will be available to that specific cue as a
-&quot;Default&quot; option in that cue's dropdown select on the Mixer.</p>
-<p><code>channels</code> determines how many instances of a sound can be playing simultaneously. The default value is <code>100</code>. If set to <code>1</code>,
-only one instance can play at a time, and a new instance cannot be started until the currently playing instance has completed.</p>
-<p>If your bundle has at least one cue that is <code>assignable</code>, it will gain a &quot;Sounds&quot; <a href="tutorial-assets.html">Asset</a> category.
-This category accepts <code>.ogg</code> and <code>.mp3</code> files. Any audio files uploaded to this category will become available as options
-in all of your <code>assignable</code> cues' dropdown boxes.</p>
-<p>If your bundle has Sound Cues, the following API methods will be available to your graphic:</p>
-<ul>
-<li><a href="NodeCG.html#playSound"><code>NodeCG#playSound</code></a></li>
-<li><a href="NodeCG.html#stopSound"><code>NodeCG#stopSound</code></a></li>
-<li><a href="NodeCG.html#stopAllSounds"><code>NodeCG#stopAllSounds</code></a></li>
-</ul>
+<p>A side-effect of this change is that it is no longer guaranteed that a server-side <code>listenFor</code> handler will receive an <code>acknowledgement</code> callback as its second argument. You should always check for the presence of an <code>acknowledgement</code> before attempting to call it:</p>
+<pre class="prettyprint source lang-js"><code>// nodecg/bundles/your-bundle
+module.exports = function (nodecg) {
+    nodecg.listenFor('example', (data, ack) => {
+        if (ack && !ack.handled) {
+            ack('foo');
+        }
+    });
+};
+</code></pre>
+<h3 id="twitch-auth-now-uses-the-%22new-twitch-api%22%2C-instead-of-the-deprecated-%22v5%22-api"><a name="twitch-api"></a> Twitch auth now uses the &quot;New Twitch API&quot;, instead of the deprecated &quot;v5&quot; API</h3>
+<p>Previously, NodeCG used the deprecated &quot;v5&quot; Twitch API.</p>
+<p>Now, NodeCG uses the &quot;New Twitch API&quot;. The only tangible result of this change for NodeCG is that the format of the <code>login.twitch.scope</code> config parameter has changed. Please see <a href="https://dev.twitch.tv/docs/authentication/#scopes">https://dev.twitch.tv/docs/authentication/#scopes</a> for documentation on this new format.</p>
 </article>
 
 </section>

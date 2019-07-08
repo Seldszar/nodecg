@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="https://raw.githubusercontent.com/nodecg/nodecg/master/src/favicon.ico">
     <title>NodeCG - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
@@ -12,8 +14,20 @@
     <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+    
+    <link type="text/css" rel="stylesheet" href="styles/github-corner.css">
+    
 </head>
 <body>
+
+<a href="https://github.com/nodecg/nodecg" class="github-corner" aria-label="View source on Github">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff;" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+
 
 <input type="checkbox" id="nav-trigger" class="nav-trigger" />
 <label for="nav-trigger" class="navicon-button x">
@@ -23,7 +37,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="NodeCG.html">NodeCG</a><ul class='methods'><li data-type='method'><a href="NodeCG.html#findCue">findCue</a></li><li data-type='method'><a href="NodeCG.html#getDialog">getDialog</a></li><li data-type='method'><a href="NodeCG.html#getDialogDocument">getDialogDocument</a></li><li data-type='method'><a href="NodeCG.html#getSocketIOServer">getSocketIOServer</a></li><li data-type='method'><a href="NodeCG.html#listenFor">listenFor</a></li><li data-type='method'><a href="NodeCG.html#log">log</a></li><li data-type='method'><a href="NodeCG.html#mount">mount</a></li><li data-type='method'><a href="NodeCG.html#playSound">playSound</a></li><li data-type='method'><a href="NodeCG.html#readReplicant">readReplicant</a></li><li data-type='method'><a href="NodeCG.html#Replicant">Replicant</a></li><li data-type='method'><a href="NodeCG.html#sendMessage">sendMessage</a></li><li data-type='method'><a href="NodeCG.html#sendMessageToBundle">sendMessageToBundle</a></li><li data-type='method'><a href="NodeCG.html#stopAllSounds">stopAllSounds</a></li><li data-type='method'><a href="NodeCG.html#stopSound">stopSound</a></li></ul></li></ul><h3>Tutorials</h3><ul><li><a href="tutorial-assets.html">Assets</a></li><li><a href="tutorial-bundle-configuration.html">Bundle Configuration</a></li><li><a href="tutorial-custom-routes.html">Custom Routes</a></li><li><a href="tutorial-making-dialogs.html">Making Dashboard Dialogs</a></li><li><a href="tutorial-manifest.html">package.json Manifest</a></li><li><a href="tutorial-migrating-0.7-to-0.8.html">Migrating from 0.7 to 0.8</a></li><li><a href="tutorial-nodecg-configuration.html">NodeCG Configuration</a></li><li><a href="tutorial-performance-tips.html">Performance Tips</a></li><li><a href="tutorial-portable-nodecg.html">Portable NodeCG</a></li><li><a href="tutorial-replicant-schemas.html">Replicant Validation</a></li><li><a href="tutorial-rollbar.html">Error Tracking with Rollbar</a></li><li><a href="tutorial-sounds.html">Sounds</a></li><li><a href="tutorial-using-bower.html">Using Bower Dependencies</a></li><li><a href="tutorial-using-npm.html">Using npm Dependencies</a></li></ul>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Tutorials</li><li class="nav-item"><a href="tutorial-1_what-is-nodecg.html">What is NodeCG?</a></li><li class="nav-item"><a href="tutorial-2_concepts-and-terminology.html">Concepts and Terminology</a></li><li class="nav-item"><a href="tutorial-3_quick-start.html">Quick Start</a></li><li class="nav-item"><a href="tutorial-4_security.html">Security & Authentication</a></li><li class="nav-item"><a href="tutorial-5_manifest.html">package.json Manifest</a></li><li class="nav-item"><a href="tutorial-6_nodecg-configuration.html">NodeCG Configuration</a></li><li class="nav-item"><a href="tutorial-7_using-npm.html">Using npm Dependencies</a></li><li class="nav-item"><a href="tutorial-8_using-bower.html">Using Bower Dependencies</a></li><li class="nav-item"><a href="tutorial-9_bundle-configuration.html">Bundle Configuration</a></li><li class="nav-item"><a href="tutorial-assets.html">Assets</a></li><li class="nav-item"><a href="tutorial-custom-routes.html">Custom Routes</a></li><li class="nav-item"><a href="tutorial-making-dialogs.html">Making Dashboard Dialogs</a></li><li class="nav-item"><a href="tutorial-migrating-0.7-to-0.8.html">Migrating from 0.7 to 0.8</a></li><li class="nav-item"><a href="tutorial-migrating-0.8-to-0.9.html">Migrating from 0.8 to 0.9</a></li><li class="nav-item"><a href="tutorial-migrating-0.9-to-1.0.html">Migrating from 0.9 to 1.0</a></li><li class="nav-item"><a href="tutorial-mounts.html">Mount folders as endpoints</a></li><li class="nav-item"><a href="tutorial-performance-tips.html">Performance Tips</a></li><li class="nav-item"><a href="tutorial-portable-nodecg.html">Portable NodeCG</a></li><li class="nav-item"><a href="tutorial-replicant-schemas.html">Replicant Validation</a></li><li class="nav-item"><a href="tutorial-screenshot-testing.html">Screenshot Testing Graphics</a></li><li class="nav-item"><a href="tutorial-sentry.html">Error Reporting with Sentry.io</a></li><li class="nav-item"><a href="tutorial-sounds.html">Sounds</a></li><li class="nav-item"><a href="tutorial-typescript.html">TypeScript</a></li><li class="nav-item"><a href="tutorial-using-bundlers.html">Using Bundlers</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="NodeCG.html">NodeCG</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#.waitForReplicants">waitForReplicants</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#findCue">findCue</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#getDialog">getDialog</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#getDialogDocument">getDialogDocument</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#getSocketIOServer">getSocketIOServer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#listenFor">listenFor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#log">log</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#mount">mount</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#playSound">playSound</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#readReplicant">readReplicant</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#Replicant">Replicant</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#sendMessage">sendMessage</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#sendMessageToBundle">sendMessageToBundle</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#stopAllSounds">stopAllSounds</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#stopSound">stopSound</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="NodeCG.html#unlisten">unlisten</a></span></li>
 </nav>
 
 <div id="main">
@@ -51,10 +65,11 @@
     <div class="container-overview">
     
         
+<div class="section-method">
 
     
 
-    <h4 class="name" id="NodeCG"><span class="type-signature"></span>new NodeCG<span class="signature">(bundle)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="NodeCG"><span class="type-signature"></span>new NodeCG<span class="signature">(bundle, socket)</span><span class="type-signature"></span></h4>
 
     
 
@@ -65,263 +80,6 @@
 as NodeCG automatically injects a pre-made API instance.</p>
 </div>
 
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>bundle</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The bundle object to build an API instance from.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api.js.html">api.js</a>, <a href="api.js.html#line18">line 18</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<h4 class="name" id=".declaredReplicants"><span class="type-signature">(static) </span>declaredReplicants<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    <p>An object containing references to all Replicants that have been declared in this <code>window</code>, sorted by bundle.
-E.g., <code>NodeCG.declaredReplicants.myBundle.myRep</code></p>
-</div>
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api.js.html">api.js</a>, <a href="api.js.html#line295">line 295</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="bundleConfig"><span class="type-signature"></span>bundleConfig<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    <p>An object containing the parsed content of <code>cfg/&lt;bundle-name&gt;.json</code>, the contents of which
-are read once when NodeCG starts up. Used to quickly access per-bundle configuration properties.</p>
-</div>
-
-
-
-
-
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
-    <thead>
-    <tr>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
 
 
 
@@ -371,32 +129,17 @@ are read once when NodeCG starts up. Used to quickly access per-bundle configura
 
 
 
-        
-            
-<h4 class="name" id="extensions"><span class="type-signature"></span>extensions<span class="type-signature"></span></h4>
 
 
 
-
-<div class="description">
-    <p><em>Extension only</em><br/>
-Object containing references to all other loaded extensions. To access another bundle's extension,
-it <em>must</em> be declared as a <code>bundleDependency</code> in your bundle's <a href="tutorial-manifest.html"><code>package.json</code></a>.</p>
-</div>
-
-
-
-
-
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
+    <h5>Parameters:</h5>
     
 
-<table class="props">
+<table class="params">
     <thead>
     <tr>
+        
+        <th>Name</th>
         
 
         <th>Type</th>
@@ -414,11 +157,13 @@ it <em>must</em> be declared as a <code>bundleDependency</code> in your bundle's
 
         <tr>
             
+                <td class="name"><code>bundle</code></td>
+            
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type"><code>object</code></span>
 
 
             
@@ -428,8 +173,402 @@ it <em>must</em> be declared as a <code>bundleDependency</code> in your bundle's
 
             
 
-            <td class="description last"></td>
+            <td class="description last">
+                <p>The bundle object to build an API instance from.</p>
+                
+            </td>
         </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>socket</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>The Socket.IO socket instance to communicate with.</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+     
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<div class="section-members">
+<h4 class="name" id=".declaredReplicants"><span class="type-signature">(static) </span>declaredReplicants<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>An object containing references to all Replicants that have been declared in this <code>window</code>, sorted by bundle.
+E.g., <code>NodeCG.declaredReplicants.myBundle.myRep</code></p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="api.js.html">api.js</a>, <a href="api.js.html#line450">line 450</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+</div>
+
+        
+            
+<div class="section-members">
+<h4 class="name" id="bundleConfig"><span class="type-signature"></span>bundleConfig<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>An object containing the parsed content of <code>cfg/&lt;bundle-name&gt;.json</code>, the contents of which
+are read once when NodeCG starts up. Used to quickly access per-bundle configuration properties.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="api.js.html">api.js</a>, <a href="api.js.html#line33">line 33</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+</div>
+
+        
+            
+<div class="section-members">
+<h4 class="name" id="bundleGit"><span class="type-signature">(readonly) </span>bundleGit<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>Provides information about the current git status of this bundle, if found.</p>
+</div>
+
+
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>branch</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>What branch this bundle is on.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>hash</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The full hash of the commit this bundle is on.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>shortHash</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The short hash of the commit this bundle is on.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>date</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Date</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The date of the commit this bundle is on.</p></td>
+        </tr>
+
+        
+
+    
+
+        <tr>
+            
+                <td class="name"><code>message</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>String</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last"><p>The message of the commit this bundle is on.</p></td>
+        </tr>
+
+        
 
     
     </tbody>
@@ -467,7 +606,7 @@ it <em>must</em> be declared as a <code>bundleDependency</code> in your bundle's
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api.js.html">api.js</a>, <a href="api.js.html#line550">line 550</a>
+        <a href="api.js.html">api.js</a>, <a href="api.js.html#line46">line 46</a>
     </li></ul></dd>
     
 
@@ -477,6 +616,202 @@ it <em>must</em> be declared as a <code>bundleDependency</code> in your bundle's
 
     
 </dl>
+
+
+
+
+
+
+
+</div>
+
+        
+            
+<div class="section-members">
+<h4 class="name" id="bundleName"><span class="type-signature"></span>bundleName<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>The name of the bundle which this NodeCG API instance is for.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="api.js.html">api.js</a>, <a href="api.js.html#line27">line 27</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+</div>
+
+        
+            
+<div class="section-members">
+<h4 class="name" id="bundleVersion"><span class="type-signature"></span>bundleVersion<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p>The version (from package.json) of the bundle which this NodeCG API instance is for.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="api.js.html">api.js</a>, <a href="api.js.html#line40">line 40</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+</div>
+
+        
+            
+<div class="section-members">
+<h4 class="name" id="extensions"><span class="type-signature"></span>extensions<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    <p><em>Extension only</em><br/>
+Object containing references to all other loaded extensions. To access another bundle's extension,
+it <em>must</em> be declared as a <code>bundleDependency</code> in your bundle's manifest.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="api.js.html">api.js</a>, <a href="api.js.html#line746">line 746</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
 
 
 
@@ -494,12 +829,88 @@ it <em>must</em> be declared as a <code>bundleDependency</code> in your bundle's
 }
 
 // bundles/my-bundle/extension.js
-module.exports = function(nodecg) {
-    var otherBundle = nodecg.extensions['other-bundle'];
+module.exports = function (nodecg) {
+    const otherBundle = nodecg.extensions['other-bundle'];
     // Now I can use `otherBundle`!
 }</code></pre>
 
 
+</div>
+
+        
+            
+<div class="section-members">
+<h4 class="name" id="Logger"><span class="type-signature"></span>Logger<span class="type-signature"> :Object</span></h4>
+
+
+
+
+<div class="description">
+    <p>Provides easy access to the Logger class.
+Useful in cases where you want to create your own custom logger.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="api.js.html">api.js</a>, <a href="api.js.html#line62">line 62</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type"><code>Object</code></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</div>
 
         
     
@@ -509,6 +920,184 @@ module.exports = function(nodecg) {
 
         
             
+<div class="section-method">
+
+    
+
+    <h4 class="name" id=".waitForReplicants"><span class="type-signature">(static) </span>waitForReplicants<span class="signature">(replicants)</span><span class="type-signature"> &rarr; {Promise.&lt;any>}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Lets you easily wait for a group of Replicants to finish declaring.</p>
+<p>Returns a promise which is resolved once all provided Replicants
+have emitted a <code>change</code> event, which is indicates that they must
+have finished declaring.</p>
+<p>This method is only useful in client-side code.
+Server-side code never has to wait for Replicants.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="api.js.html">api.js</a>, <a href="api.js.html#line559">line 559</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>replicants</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Replicant</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>Promise.&lt;any></code></span>
+
+
+    </dd>
+</dl>
+
+
+    
+</div>
+
+
+
+<div class="section-examples">
+<h5>Example</h5>
+
+        <p class="code-caption">From a graphic or dashboard panel:</p>
+    
+    <pre class="prettyprint"><code>const rep1 = nodecg.Replicant('rep1');
+const rep2 = nodecg.Replicant('rep2');
+
+// You can provide as many Replicant arguments as you want,
+// this example just uses two Replicants.
+NodeCG.waitForReplicants(rep1, rep2).then(() => {
+    console.log('rep1 and rep2 are fully declared and ready to use!');
+});</code></pre>
+
+</div>
+
+</div>
+        
+            
+<div class="section-method">
 
     
 
@@ -522,6 +1111,50 @@ module.exports = function(nodecg) {
     <p>Returns the sound cue of the provided <code>cueName</code> in the current bundle.
 Returns undefined if a cue by that name cannot be found in this bundle.</p>
 </div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="api.js.html">api.js</a>, <a href="api.js.html#line637">line 637</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
 
 
 
@@ -562,7 +1195,7 @@ Returns undefined if a cue by that name cannot be found in this bundle.</p>
             <td class="type">
             
                 
-<span class="param-type">String</span>
+<span class="param-type"><code>String</code></span>
 
 
             
@@ -572,7 +1205,10 @@ Returns undefined if a cue by that name cannot be found in this bundle.</p>
 
             
 
-            <td class="description last"></td>
+            <td class="description last">
+                
+                
+            </td>
         </tr>
 
     
@@ -584,45 +1220,6 @@ Returns undefined if a cue by that name cannot be found in this bundle.</p>
 
 
 
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api.js.html">api.js</a>, <a href="api.js.html#line441">line 441</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
 
 
 
@@ -631,43 +1228,42 @@ Returns undefined if a cue by that name cannot be found in this bundle.</p>
 
 
 
-
-
-
-
-
+<div class="section-returns">
 <h5>Returns:</h5>
 
         
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>Object</code></span>
+|
+
+<span class="param-type"><code>undefined</code></span>
+
+
+    </dd>
+</dl>
+
+
 <div class="param-desc">
     <ul>
 <li>A NodeCG cue object.</li>
 </ul>
 </div>
 
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Object</span>
-|
-
-<span class="param-type">undefined</span>
-
-
-    </dd>
-</dl>
-
     
+</div>
 
 
 
+</div>
         
             
+<div class="section-method">
 
     
 
@@ -686,6 +1282,50 @@ Returns the specified dialog element.</p>
 
 
 
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="api.js.html">api.js</a>, <a href="api.js.html#line612">line 612</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
 
 
 
@@ -725,7 +1365,7 @@ Returns the specified dialog element.</p>
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type"><code>string</code></span>
 
 
             
@@ -747,7 +1387,10 @@ Returns the specified dialog element.</p>
                 </td>
             
 
-            <td class="description last"><p>The desired dialog's name.</p></td>
+            <td class="description last">
+                <p>The desired dialog's name.</p>
+                
+            </td>
         </tr>
 
     
@@ -760,7 +1403,7 @@ Returns the specified dialog element.</p>
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type"><code>string</code></span>
 
 
             
@@ -786,7 +1429,10 @@ Returns the specified dialog element.</p>
                 </td>
             
 
-            <td class="description last"><p>The bundle from which to select the dialog.</p></td>
+            <td class="description last">
+                <p>The bundle from which to select the dialog.</p>
+                
+            </td>
         </tr>
 
     
@@ -798,45 +1444,6 @@ Returns the specified dialog element.</p>
 
 
 
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api.js.html">api.js</a>, <a href="api.js.html#line418">line 418</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
 
 
 
@@ -845,34 +1452,33 @@ Returns the specified dialog element.</p>
 
 
 
-
-
-
-
-
+<div class="section-returns">
 <h5>Returns:</h5>
 
         
 
-
 <dl class="param-type">
     <dt>
-        Type
+        Type:
     </dt>
     <dd>
         
-<span class="param-type">object</span>
+<span class="param-type"><code>object</code></span>
 
 
     </dd>
 </dl>
 
+
     
+</div>
 
 
 
+</div>
         
             
+<div class="section-method">
 
     
 
@@ -891,6 +1497,50 @@ Returns the specified dialog's iframe document.</p>
 
 
 
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="api.js.html">api.js</a>, <a href="api.js.html#line626">line 626</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
 
 
 
@@ -930,7 +1580,7 @@ Returns the specified dialog's iframe document.</p>
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type"><code>string</code></span>
 
 
             
@@ -952,7 +1602,10 @@ Returns the specified dialog's iframe document.</p>
                 </td>
             
 
-            <td class="description last"><p>The desired dialog's name.</p></td>
+            <td class="description last">
+                <p>The desired dialog's name.</p>
+                
+            </td>
         </tr>
 
     
@@ -965,7 +1618,7 @@ Returns the specified dialog's iframe document.</p>
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type"><code>string</code></span>
 
 
             
@@ -991,7 +1644,10 @@ Returns the specified dialog's iframe document.</p>
                 </td>
             
 
-            <td class="description last"><p>The bundle from which to select the dialog.</p></td>
+            <td class="description last">
+                <p>The bundle from which to select the dialog.</p>
+                
+            </td>
         </tr>
 
     
@@ -1003,45 +1659,6 @@ Returns the specified dialog's iframe document.</p>
 
 
 
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api.js.html">api.js</a>, <a href="api.js.html#line430">line 430</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
 
 
 
@@ -1050,34 +1667,33 @@ Returns the specified dialog's iframe document.</p>
 
 
 
-
-
-
-
-
+<div class="section-returns">
 <h5>Returns:</h5>
 
         
 
-
 <dl class="param-type">
     <dt>
-        Type
+        Type:
     </dt>
     <dd>
         
-<span class="param-type">object</span>
+<span class="param-type"><code>object</code></span>
 
 
     </dd>
 </dl>
 
+
     
+</div>
 
 
 
+</div>
         
             
+<div class="section-method">
 
     
 
@@ -1096,9 +1712,89 @@ Gets the server Socket.IO context.</p>
 
 
 
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="api.js.html">api.js</a>, <a href="api.js.html#line725">line 725</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="listenFor"><span class="type-signature"></span>listenFor<span class="signature">(messageName, bundleName<span class="signature-attributes">opt</span>, handlerFunc)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Listens for a message, and invokes the provided callback each time the message is received.
+If any data was sent with the message, it will be passed to the callback.</p>
+<p>Messages are namespaced by bundle.
+To listen to a message in another bundle's namespace, provide it as the second argument.</p>
+<p>You may define multiple listenFor handlers for a given message.
+They will be called in the order they were registered.</p>
+</div>
 
 
 
@@ -1133,7 +1829,7 @@ Gets the server Socket.IO context.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api.js.html">api.js</a>, <a href="api.js.html#line529">line 529</a>
+        <a href="api.js.html">api.js</a>, <a href="api.js.html#line382">line 382</a>
     </li></ul></dd>
     
 
@@ -1143,39 +1839,6 @@ Gets the server Socket.IO context.</p>
 
     
 </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="listenFor"><span class="type-signature"></span>listenFor<span class="signature">(messageName, bundleName<span class="signature-attributes">opt</span>, handler)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Listens for a message, and invokes the provided callback each time the message is received.
-If any data was sent with the message, it will be passed to the callback.</p>
-<p>Messages are namespaced by bundle.
-To listen to a message in another bundle's namespace, provide it as the second argument.</p>
-</div>
 
 
 
@@ -1220,7 +1883,7 @@ To listen to a message in another bundle's namespace, provide it as the second a
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type"><code>string</code></span>
 
 
             
@@ -1242,7 +1905,10 @@ To listen to a message in another bundle's namespace, provide it as the second a
                 </td>
             
 
-            <td class="description last"><p>The name of the message.</p></td>
+            <td class="description last">
+                <p>The name of the message.</p>
+                
+            </td>
         </tr>
 
     
@@ -1255,7 +1921,7 @@ To listen to a message in another bundle's namespace, provide it as the second a
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type"><code>string</code></span>
 
 
             
@@ -1281,20 +1947,23 @@ To listen to a message in another bundle's namespace, provide it as the second a
                 </td>
             
 
-            <td class="description last"><p>The bundle namespace to in which to listen for this message</p></td>
+            <td class="description last">
+                <p>The bundle namespace to in which to listen for this message</p>
+                
+            </td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>handler</code></td>
+                <td class="name"><code>handlerFunc</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type"><code>function</code></span>
 
 
             
@@ -1316,7 +1985,10 @@ To listen to a message in another bundle's namespace, provide it as the second a
                 </td>
             
 
-            <td class="description last"><p>The callback fired when this message is received.</p></td>
+            <td class="description last">
+                <p>The callback fired when this message is received.</p>
+                
+            </td>
         </tr>
 
     
@@ -1328,45 +2000,6 @@ To listen to a message in another bundle's namespace, provide it as the second a
 
 
 
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api.js.html">api.js</a>, <a href="api.js.html#line263">line 263</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
 
 
 
@@ -1377,27 +2010,25 @@ To listen to a message in another bundle's namespace, provide it as the second a
 
 
 
+<div class="section-examples">
+<h5>Examples</h5>
 
-
-
-
-
-    <h5>Examples</h5>
-    
-    <pre class="prettyprint"><code>nodecg.listenFor('printMessage', function (message) {
+    <pre class="prettyprint"><code>nodecg.listenFor('printMessage', message => {
     console.log(message);
 });</code></pre>
 
         <p class="code-caption">Listening to a message in another bundle's namespace:</p>
     
-    <pre class="prettyprint"><code>nodecg.listenFor('printMessage', 'another-bundle', function (message) {
+    <pre class="prettyprint"><code>nodecg.listenFor('printMessage', 'another-bundle', message => {
     console.log(message);
 });</code></pre>
 
+</div>
 
-
+</div>
         
             
+<div class="section-method">
 
     
 
@@ -1408,22 +2039,15 @@ To listen to a message in another bundle's namespace, provide it as the second a
 
 
 <div class="description">
-    <p>Provides access to NodeCG's logger, with the following methods. The logging level is set in <code>cfg/nodecg.json</code>,
+    <p>An instance of NodeCG's Logger, with the following methods. The logging level is set in <code>cfg/nodecg.json</code>,
 NodeCG's global config file.</p>
 <pre class="prettyprint source"><code>nodecg.log.trace('trace level logging');
 nodecg.log.debug('debug level logging');
 nodecg.log.info('info level logging');
 nodecg.log.warn('warn level logging');
-nodecg.log.error('error level logging');</code></pre>
+nodecg.log.error('error level logging');
+</code></pre>
 </div>
-
-
-
-
-
-
-
-
 
 
 
@@ -1458,7 +2082,7 @@ nodecg.log.error('error level logging');</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api.js.html">api.js</a>, <a href="api.js.html#line32">line 32</a>
+        <a href="api.js.html">api.js</a>, <a href="api.js.html#line70">line 70</a>
     </li></ul></dd>
     
 
@@ -1484,8 +2108,17 @@ nodecg.log.error('error level logging');</code></pre>
 
 
 
+
+
+
+
+
+
+
+</div>
         
             
+<div class="section-method">
 
     
 
@@ -1505,9 +2138,85 @@ See the <a href="http://expressjs.com/en/api.html#app.use">express docs</a> for 
 
 
 
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="api.js.html">api.js</a>, <a href="api.js.html#line733">line 733</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="playSound"><span class="type-signature"></span>playSound<span class="signature">(cueName, opts<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object|undefined}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Plays the sound cue of the provided <code>cueName</code> in the current bundle.
+Does nothing if the cue doesn't exist or if the cue has no assigned file to play.</p>
+</div>
 
 
 
@@ -1542,7 +2251,7 @@ See the <a href="http://expressjs.com/en/api.html#app.use">express docs</a> for 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api.js.html">api.js</a>, <a href="api.js.html#line537">line 537</a>
+        <a href="api.js.html">api.js</a>, <a href="api.js.html#line650">line 650</a>
     </li></ul></dd>
     
 
@@ -1552,37 +2261,6 @@ See the <a href="http://expressjs.com/en/api.html#app.use">express docs</a> for 
 
     
 </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="playSound"><span class="type-signature"></span>playSound<span class="signature">(cueName, opts<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Object|undefined}</span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Plays the sound cue of the provided <code>cueName</code> in the current bundle.
-Does nothing if the cue doesn't exist or if the cue has no assigned file to play.</p>
-</div>
 
 
 
@@ -1625,7 +2303,7 @@ Does nothing if the cue doesn't exist or if the cue has no assigned file to play
             <td class="type">
             
                 
-<span class="param-type">String</span>
+<span class="param-type"><code>String</code></span>
 
 
             
@@ -1643,7 +2321,10 @@ Does nothing if the cue doesn't exist or if the cue has no assigned file to play
 
             
 
-            <td class="description last"></td>
+            <td class="description last">
+                
+                
+            </td>
         </tr>
 
     
@@ -1656,7 +2337,7 @@ Does nothing if the cue doesn't exist or if the cue has no assigned file to play
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type"><code>Object</code></span>
 
 
             
@@ -1677,8 +2358,9 @@ Does nothing if the cue doesn't exist or if the cue has no assigned file to play
             
 
             <td class="description last">
-                <h6>Properties</h6>
                 
+                
+                    
 
 <table class="params">
     <thead>
@@ -1733,14 +2415,10 @@ Does nothing if the cue doesn't exist or if the cue has no assigned file to play
                 </td>
             
 
-            <td class="description last"><p>Whether or not to let NodeCG automatically update this instance's volume
-when the user changes it on the dashboard.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
+            <td class="description last">
+                <p>Whether or not to let NodeCG automatically update this instance's volume
+when the user changes it on the dashboard.</p>
+                
             </td>
         </tr>
 
@@ -1748,6 +2426,75 @@ when the user changes it on the dashboard.</p></td>
     </tbody>
 </table>
 
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>Object</code></span>
+|
+
+<span class="param-type"><code>undefined</code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    <ul>
+<li>A SoundJS AbstractAudioInstance.</li>
+</ul>
+</div>
+
+    
+</div>
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="readReplicant"><span class="type-signature"></span>readReplicant<span class="signature">(name, bundle<span class="signature-attributes">opt</span>, cb)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Reads the value of a replicant once, and doesn't create a subscription to it. Also available as a static method.</p>
+</div>
 
 
 
@@ -1782,7 +2529,7 @@ when the user changes it on the dashboard.</p></td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api.js.html">api.js</a>, <a href="api.js.html#line454">line 454</a>
+        <a href="api.js.html">api.js</a>, <a href="api.js.html#line593">line 593</a>
     </li></ul></dd>
     
 
@@ -1792,63 +2539,6 @@ when the user changes it on the dashboard.</p></td>
 
     
 </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <ul>
-<li>A SoundJS AbstractAudioInstance.</li>
-</ul>
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Object</span>
-|
-
-<span class="param-type">undefined</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="readReplicant"><span class="type-signature"></span>readReplicant<span class="signature">(name, bundle<span class="signature-attributes">opt</span>, cb)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Reads the value of a replicant once, and doesn't create a subscription to it. Also available as a static method.</p>
-</div>
 
 
 
@@ -1893,7 +2583,7 @@ when the user changes it on the dashboard.</p></td>
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type"><code>string</code></span>
 
 
             
@@ -1915,7 +2605,10 @@ when the user changes it on the dashboard.</p></td>
                 </td>
             
 
-            <td class="description last"><p>The name of the replicant.</p></td>
+            <td class="description last">
+                <p>The name of the replicant.</p>
+                
+            </td>
         </tr>
 
     
@@ -1928,7 +2621,7 @@ when the user changes it on the dashboard.</p></td>
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type"><code>string</code></span>
 
 
             
@@ -1954,7 +2647,10 @@ when the user changes it on the dashboard.</p></td>
                 </td>
             
 
-            <td class="description last"><p>The bundle namespace to in which to look for this replicant.</p></td>
+            <td class="description last">
+                <p>The bundle namespace to in which to look for this replicant.</p>
+                
+            </td>
         </tr>
 
     
@@ -1967,7 +2663,7 @@ when the user changes it on the dashboard.</p></td>
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type"><code>function</code></span>
 
 
             
@@ -1989,13 +2685,82 @@ when the user changes it on the dashboard.</p></td>
                 </td>
             
 
-            <td class="description last"><p><em>Browser only</em> The callback that handles the server's response which contains the value.</p></td>
+            <td class="description last">
+                <p><em>Browser only</em> The callback that handles the server's response which contains the value.</p>
+                
+            </td>
         </tr>
 
     
     </tbody>
 </table>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-examples">
+<h5>Examples</h5>
+
+        <p class="code-caption">From an extension:</p>
+    
+    <pre class="prettyprint"><code>// Extensions have immediate access to the database of Replicants.
+// For this reason, they can use readReplicant synchronously, without a callback.
+module.exports = function (nodecg) {
+    var myVal = nodecg.readReplicant('myVar', 'some-bundle');
+}</code></pre>
+
+        <p class="code-caption">From a graphic or dashboard panel:</p>
+    
+    <pre class="prettyprint"><code>// Graphics and dashboard panels must query the server to retrieve the value,
+// and therefore must provide a callback.
+nodecg.readReplicant('myRep', 'some-bundle', value => {
+    // I can use 'value' now!
+    console.log('myRep has the value '+ value +'!');
+});</code></pre>
+
+</div>
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="Replicant"><span class="type-signature"></span>Replicant<span class="signature">(name, namespace<span class="signature-attributes">opt</span>, opts<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Replicants are objcts which monitor changes to a variable's value.
+The changes are replicated across all extensions, graphics, and dashboard panels.
+When a Replicant changes in one of those places it is quickly updated in the rest,
+and a <code>change</code> event is emitted allowing bundles to react to the changes in the data.</p>
+<p>If a Replicant with a given name in a given bundle namespace has already been declared,
+the Replicant will automatically be assigned the existing value.</p>
+<p>Replicants must be declared in each context that wishes to use them. For instance,
+declaring a replicant in an extension does not automatically make it available in a graphic.
+The graphic must also declare it.</p>
+<p>By default Replicants will be saved to disk, meaning they will automatically be restored when NodeCG is restarted,
+such as after an unexpected crash.
+If you need to opt-out of this behaviour simply set <code>persistent: false</code> in the <code>opts</code> argument.</p>
+<p>As of NodeCG 0.8.4, Replicants can also be automatically validated against a JSON Schema that you provide.
+See <a href="tutorial-replicant-schemas.html">Replicant Validation</a> for more information.</p>
+</div>
 
 
 
@@ -2030,7 +2795,7 @@ when the user changes it on the dashboard.</p></td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api.js.html">api.js</a>, <a href="api.js.html#line399">line 399</a>
+        <a href="api.js.html">api.js</a>, <a href="api.js.html#line500">line 500</a>
     </li></ul></dd>
     
 
@@ -2040,69 +2805,6 @@ when the user changes it on the dashboard.</p></td>
 
     
 </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Examples</h5>
-    
-        <p class="code-caption">From an extension:</p>
-    
-    <pre class="prettyprint"><code>// Extensions have immediate access to the database of Replicants.
-// For this reason, they can use readReplicant synchronously, without a callback.
-module.exports = function(nodecg) {
-    var myVal = nodecg.readReplicant('myVar', 'some-bundle');
-}</code></pre>
-
-        <p class="code-caption">From a graphic or dashboard panel:</p>
-    
-    <pre class="prettyprint"><code>// Graphics and dashboard panels must query the server to retrieve the value,
-// and therefore must provide a callback.
-nodecg.readReplicant('myRep', 'some-bundle', function(value) {
-    // I can use 'value' now!
-    console.log('myRep has the value '+ value +'!');
-});</code></pre>
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="Replicant"><span class="type-signature"></span>Replicant<span class="signature">(name, namespace<span class="signature-attributes">opt</span>, opts<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Replicants are objcts which monitor changes to a variable's value.
-The changes are replicated across all extensions, graphics, and dashboard panels.
-When a Replicant changes in one of those places it is quickly updated in the rest,
-and a <code>change</code> event is emitted allowing bundles to react to the changes in the data.</p>
-<p>If a Replicant with a given name in a given bundle namespace has already been declared,
-the Replicant will automatically be assigned the existing value.</p>
-<p>Replicants must be declared in each context that wishes to use them. For instance,
-declaring a replicant in an extension does not automatically make it available in a graphic.
-The graphic must also declare it.</p>
-<p>By default Replicants will be saved to disk, meaning they will automatically be restored when NodeCG is restarted,
-such as after an unexpected crash.
-If you need to opt-out of this behaviour simply set <code>persistent: false</code> in the <code>opts</code> argument.</p>
-<p>As of NodeCG 0.8.4, Replicants can also be automatically validated against a JSON Schema that you provide.
-See <a href="tutorial-replicant-schemas.html">Replicant Validation</a> for more information.</p>
-</div>
 
 
 
@@ -2145,7 +2847,7 @@ See <a href="tutorial-replicant-schemas.html">Replicant Validation</a> for more 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type"><code>string</code></span>
 
 
             
@@ -2163,7 +2865,10 @@ See <a href="tutorial-replicant-schemas.html">Replicant Validation</a> for more 
 
             
 
-            <td class="description last"><p>The name of the replicant.</p></td>
+            <td class="description last">
+                <p>The name of the replicant.</p>
+                
+            </td>
         </tr>
 
     
@@ -2176,7 +2881,7 @@ See <a href="tutorial-replicant-schemas.html">Replicant Validation</a> for more 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type"><code>string</code></span>
 
 
             
@@ -2196,7 +2901,10 @@ See <a href="tutorial-replicant-schemas.html">Replicant Validation</a> for more 
 
             
 
-            <td class="description last"><p>The namespace to in which to look for this replicant. Defaults to the name of the current bundle.</p></td>
+            <td class="description last">
+                <p>The namespace to in which to look for this replicant. Defaults to the name of the current bundle.</p>
+                
+            </td>
         </tr>
 
     
@@ -2209,7 +2917,7 @@ See <a href="tutorial-replicant-schemas.html">Replicant Validation</a> for more 
             <td class="type">
             
                 
-<span class="param-type">object</span>
+<span class="param-type"><code>object</code></span>
 
 
             
@@ -2229,9 +2937,10 @@ See <a href="tutorial-replicant-schemas.html">Replicant Validation</a> for more 
 
             
 
-            <td class="description last"><p>The options for this replicant.</p>
-                <h6>Properties</h6>
+            <td class="description last">
+                <p>The options for this replicant.</p>
                 
+                    
 
 <table class="params">
     <thead>
@@ -2265,7 +2974,7 @@ See <a href="tutorial-replicant-schemas.html">Replicant Validation</a> for more 
             <td class="type">
             
                 
-<span class="param-type">*</span>
+<span class="param-type"><code>*</code></span>
 
 
             
@@ -2289,8 +2998,11 @@ See <a href="tutorial-replicant-schemas.html">Replicant Validation</a> for more 
                 </td>
             
 
-            <td class="description last"><p>The default value to instantiate this Replicant with. The default value is only
-applied if this Replicant has not previously been declared and if it has no persisted value.</p></td>
+            <td class="description last">
+                <p>The default value to instantiate this Replicant with. The default value is only
+applied if this Replicant has not previously been declared and if it has no persisted value.</p>
+                
+            </td>
         </tr>
 
     
@@ -2303,7 +3015,7 @@ applied if this Replicant has not previously been declared and if it has no pers
             <td class="type">
             
                 
-<span class="param-type">boolean</span>
+<span class="param-type"><code>boolean</code></span>
 
 
             
@@ -2329,8 +3041,53 @@ applied if this Replicant has not previously been declared and if it has no pers
                 </td>
             
 
-            <td class="description last"><p>Whether to persist the Replicant's value to disk on every change.
-Persisted values are re-loaded on startup.</p></td>
+            <td class="description last">
+                <p>Whether to persist the Replicant's value to disk on every change.
+Persisted values are re-loaded on startup.</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>persistenceInterval</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>number</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    DEFAULT_PERSISTENCE_INTERVAL
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>Interval between each persistence, in milliseconds.</p>
+                
+            </td>
         </tr>
 
     
@@ -2343,7 +3100,7 @@ Persisted values are re-loaded on startup.</p></td>
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type"><code>string</code></span>
 
 
             
@@ -2367,15 +3124,11 @@ Persisted values are re-loaded on startup.</p></td>
                 </td>
             
 
-            <td class="description last"><p>The filepath at which to look for a JSON Schema for this Replicant.
+            <td class="description last">
+                <p>The filepath at which to look for a JSON Schema for this Replicant.
 Defaults to <code>nodecg/bundles/${bundleName}/schemas/${replicantName}.json</code>. Please note that this default
-path will be URIEncoded to ensure that it results in a valid filename.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
+path will be URIEncoded to ensure that it results in a valid filename.</p>
+                
             </td>
         </tr>
 
@@ -2383,6 +3136,76 @@ path will be URIEncoded to ensure that it results in a valid filename.</p></td>
     </tbody>
 </table>
 
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-examples">
+<h5>Example</h5>
+
+    <pre class="prettyprint"><code>const myRep = nodecg.Replicant('myRep', {defaultValue: 123});
+
+myRep.on('change', (newValue, oldValue) => {
+    console.log(`myRep changed from ${oldValue} to ${newValue}`);
+});
+
+myRep.value = 'Hello!';
+myRep.value = {objects: 'work too!'};
+myRep.value = {objects: {can: {be: 'nested!'}}};
+myRep.value = ['Even', 'arrays', 'work!'];</code></pre>
+
+</div>
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="sendMessage"><span class="type-signature"></span>sendMessage<span class="signature">(messageName, data<span class="signature-attributes">opt</span>, cb<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Sends a message with optional data within the current bundle.
+Messages can be sent from client to server, server to client, or client to client.</p>
+<p>Messages are namespaced by bundle. To send a message in another bundle's namespace,
+use <a href="NodeCG.html#sendMessageToBundle"><code>NodeCG#sendMessageToBundle</code></a>.</p>
+<p>When a <code>sendMessage</code> is used from a client context (i.e., graphic or dashboard panel),
+it returns a <code>Promise</code> called an &quot;acknowledgement&quot;. Your server-side code (i.e., extension)
+can invoke this acknowledgement with whatever data (or error) it wants. Errors sent to acknowledgements
+from the server will be properly serialized and intact when received on the client.</p>
+<p>Alternatively, if you do not wish to use a <code>Promise</code>, you can provide a standard error-first
+callback as the last argument to <code>sendMessage</code>.</p>
+<p>If your server-side code has multiple listenFor handlers for your message,
+you must first check if the acknowledgement has already been handled before
+attempting to call it. You may so do by checking the <code>.handled</code> boolean
+property of the <code>ack</code> function passed to your listenFor handler.</p>
+<p>See <a href="http://socket.io/docs/#sending-and-getting-data-%28acknowledgements%29">Socket.IO's docs</a>
+for more information on how acknowledgements work under the hood.</p>
+</div>
 
 
 
@@ -2417,7 +3240,7 @@ path will be URIEncoded to ensure that it results in a valid filename.</p></td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api.js.html">api.js</a>, <a href="api.js.html#line344">line 344</a>
+        <a href="api.js.html">api.js</a>, <a href="api.js.html#line276">line 276</a>
     </li></ul></dd>
     
 
@@ -2427,58 +3250,6 @@ path will be URIEncoded to ensure that it results in a valid filename.</p></td>
 
     
 </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>const myRep = nodecg.Replicant('myRep', {defaultValue: 123});
-
-myRep.on('change', function(newValue, oldValue) {
-    console.log('myRep changed from '+ oldValue +' to '+ newValue);
-});
-
-myRep.value = 'Hello!';
-myRep.value = {objects: 'work too!'};
-myRep.value = {objects: {can: {be: 'nested!'}}};
-myRep.value = ['Even', 'arrays', 'work!'];</code></pre>
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="sendMessage"><span class="type-signature"></span>sendMessage<span class="signature">(messageName, data<span class="signature-attributes">opt</span>, cb<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Sends a message with optional data within the current bundle.
-Messages can be sent from client to server, server to client, or client to client.</p>
-<p>Messages are namespaced by bundle. To send a message in another bundle's namespace,
-use <a href="NodeCG.html#sendMessageToBundle"><code>NodeCG#sendMessageToBundle</code></a>.</p>
-<p>If a message is sent from a client (graphic or dashboard panel), to the server (an extension),
-it may provide an optional callback called an <code>acknowledgement</code>.
-Acknowledgements will not work for client-to-client nor server-to-client messages.
-Only client-to-server messages support acknowledgements. This restriction is a limitation of
-<a href="http://socket.io/docs/#sending-and-getting-data-%28acknowledgements%29">Socket.IO</a>.</p>
-</div>
 
 
 
@@ -2521,7 +3292,7 @@ Only client-to-server messages support acknowledgements. This restriction is a l
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type"><code>string</code></span>
 
 
             
@@ -2539,7 +3310,10 @@ Only client-to-server messages support acknowledgements. This restriction is a l
 
             
 
-            <td class="description last"><p>The name of the message.</p></td>
+            <td class="description last">
+                <p>The name of the message.</p>
+                
+            </td>
         </tr>
 
     
@@ -2552,7 +3326,7 @@ Only client-to-server messages support acknowledgements. This restriction is a l
             <td class="type">
             
                 
-<span class="param-type">mixed</span>
+<span class="param-type"><code>mixed</code></span>
 
 
             
@@ -2572,7 +3346,10 @@ Only client-to-server messages support acknowledgements. This restriction is a l
 
             
 
-            <td class="description last"><p>The data to send.</p></td>
+            <td class="description last">
+                <p>The data to send.</p>
+                
+            </td>
         </tr>
 
     
@@ -2585,7 +3362,7 @@ Only client-to-server messages support acknowledgements. This restriction is a l
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type"><code>function</code></span>
 
 
             
@@ -2605,8 +3382,11 @@ Only client-to-server messages support acknowledgements. This restriction is a l
 
             
 
-            <td class="description last"><p><em>Browser only</em> The callback to handle the server's
-<a href="http://socket.io/docs/#sending-and-getting-data-%28acknowledgements%29">acknowledgement</a> message, if any.</p></td>
+            <td class="description last">
+                <p><em>Browser only</em> The error-first callback to handle the server's
+<a href="http://socket.io/docs/#sending-and-getting-data-%28acknowledgements%29">acknowledgement</a> message, if any.</p>
+                
+            </td>
         </tr>
 
     
@@ -2618,88 +3398,101 @@ Only client-to-server messages support acknowledgements. This restriction is a l
 
 
 
-<dl class="details">
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+<div class="section-returns">
+<h5>Returns:</h5>
 
-    
+        
 
-    
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>Promise</code></span>
 
-    
 
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api.js.html">api.js</a>, <a href="api.js.html#line192">line 192</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
+    </dd>
 </dl>
 
 
+<div class="param-desc">
+    <ul>
+<li><em>Browser only</em> A Promise that is rejected if the first argument provided to the
+acknowledgement is an <code>Error</code>, otherwise it is resolved with the remaining arguments provided to the acknowledgement.</li>
+</ul>
+</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Examples</h5>
     
+</div>
+
+
+
+<div class="section-examples">
+<h5>Examples</h5>
+
         <p class="code-caption">Sending a normal message:</p>
     
     <pre class="prettyprint"><code>nodecg.sendMessage('printMessage', 'dope.');</code></pre>
 
-        <p class="code-caption">Sending a message and calling back with an acknowledgement:</p>
+        <p class="code-caption">Sending a message and replying with an acknowledgement:</p>
     
     <pre class="prettyprint"><code>// bundles/my-bundle/extension.js
-module.exports = function(nodecg) {
-    nodecg.listenFor('multiplyByTwo', function(value, callback) {
-         callback(value * 2);
+module.exports = function (nodecg) {
+    nodecg.listenFor('multiplyByTwo', (value, ack) => {
+        if (value === 4) {
+            ack(new Error('I don\'t like multiplying the number 4!');
+            return;
+        }
+
+        // acknowledgements should always be error-first callbacks.
+        // If you do not wish to send an error, use a falsey value
+        // like "null" instead.
+        if (ack &amp;&amp; !ack.handled) {
+            ack(null, value * 2);
+        }
     });
 }
 
 // bundles/my-bundle/graphics/script.js
-nodecg.sendMessage('multiplyByTwo', 2, function(result) {
+// Both of these examples are functionally identical.
+
+// Promise acknowledgement
+nodecg.sendMessage('multiplyByTwo', 2)
+    .then(result => {
+        console.log(result); // Will eventually print '4'
+    .catch(error => {
+        console.error(error);
+    });
+
+// Error-first callback acknowledgement
+nodecg.sendMessage('multiplyByTwo', 2, (error, result) => {
+    if (error) {
+        console.error(error);
+        return;
+    }
+
     console.log(result); // Will eventually print '4'
 });</code></pre>
 
+</div>
 
-
+</div>
         
             
+<div class="section-method">
 
     
 
-    <h4 class="name" id="sendMessageToBundle"><span class="type-signature"></span>sendMessageToBundle<span class="signature">(messageName, bundleName, data<span class="signature-attributes">opt</span>, cb<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="sendMessageToBundle"><span class="type-signature"></span>sendMessageToBundle<span class="signature">(messageName, bundleName, data<span class="signature-attributes">opt</span>, cb<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise|undefined}</span></h4>
 
     
 
@@ -2714,6 +3507,50 @@ See <a href="NodeCG.html#sendMessage"><code>NodeCG#sendMessage</code></a> for us
 
 
 
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="api.js.html">api.js</a>, <a href="api.js.html#line350">line 350</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
 
 
 
@@ -2751,7 +3588,7 @@ See <a href="NodeCG.html#sendMessage"><code>NodeCG#sendMessage</code></a> for us
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type"><code>string</code></span>
 
 
             
@@ -2769,7 +3606,10 @@ See <a href="NodeCG.html#sendMessage"><code>NodeCG#sendMessage</code></a> for us
 
             
 
-            <td class="description last"><p>The name of the message.</p></td>
+            <td class="description last">
+                <p>The name of the message.</p>
+                
+            </td>
         </tr>
 
     
@@ -2782,7 +3622,7 @@ See <a href="NodeCG.html#sendMessage"><code>NodeCG#sendMessage</code></a> for us
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type"><code>string</code></span>
 
 
             
@@ -2800,7 +3640,10 @@ See <a href="NodeCG.html#sendMessage"><code>NodeCG#sendMessage</code></a> for us
 
             
 
-            <td class="description last"><p>The name of the target bundle.</p></td>
+            <td class="description last">
+                <p>The name of the target bundle.</p>
+                
+            </td>
         </tr>
 
     
@@ -2813,7 +3656,7 @@ See <a href="NodeCG.html#sendMessage"><code>NodeCG#sendMessage</code></a> for us
             <td class="type">
             
                 
-<span class="param-type">mixed</span>
+<span class="param-type"><code>mixed</code></span>
 
 
             
@@ -2833,7 +3676,10 @@ See <a href="NodeCG.html#sendMessage"><code>NodeCG#sendMessage</code></a> for us
 
             
 
-            <td class="description last"><p>The data to send.</p></td>
+            <td class="description last">
+                <p>The data to send.</p>
+                
+            </td>
         </tr>
 
     
@@ -2846,7 +3692,7 @@ See <a href="NodeCG.html#sendMessage"><code>NodeCG#sendMessage</code></a> for us
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type"><code>function</code></span>
 
 
             
@@ -2866,8 +3712,11 @@ See <a href="NodeCG.html#sendMessage"><code>NodeCG#sendMessage</code></a> for us
 
             
 
-            <td class="description last"><p><em>Browser only</em> The callback to handle the server's
-<a href="http://socket.io/docs/#sending-and-getting-data-%28acknowledgements%29">acknowledgement</a> message, if any.</p></td>
+            <td class="description last">
+                <p><em>Browser only</em> The error-first callback to handle the server's
+<a href="http://socket.io/docs/#sending-and-getting-data-%28acknowledgements%29">acknowledgement</a> message, if any.</p>
+                
+            </td>
         </tr>
 
     
@@ -2879,63 +3728,52 @@ See <a href="NodeCG.html#sendMessage"><code>NodeCG#sendMessage</code></a> for us
 
 
 
-<dl class="details">
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+<div class="section-returns">
+<h5>Returns:</h5>
 
-    
+        
 
-    
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>Promise</code></span>
+|
 
-    
+<span class="param-type"><code>undefined</code></span>
 
-    
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api.js.html">api.js</a>, <a href="api.js.html#line232">line 232</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
+    </dd>
 </dl>
 
 
+<div class="param-desc">
+    <ul>
+<li><em>Browser only</em> A Promise that is rejected if the first argument provided to the
+acknowledgement is an <code>Error</code>, otherwise it is resolved with the remaining arguments provided to the acknowledgement.
+But, if a callback was provided, this return value will be <code>undefined</code>, and there will be no Promise.</li>
+</ul>
+</div>
+
+    
+</div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+</div>
         
             
+<div class="section-method">
 
     
 
@@ -2953,9 +3791,84 @@ See <a href="NodeCG.html#sendMessage"><code>NodeCG#sendMessage</code></a> for us
 
 
 
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="api.js.html">api.js</a>, <a href="api.js.html#line712">line 712</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="stopSound"><span class="type-signature"></span>stopSound<span class="signature">(cueName)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Stops all currently playing instances of the provided <code>cueName</code>.</p>
+</div>
 
 
 
@@ -2990,7 +3903,7 @@ See <a href="NodeCG.html#sendMessage"><code>NodeCG#sendMessage</code></a> for us
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api.js.html">api.js</a>, <a href="api.js.html#line516">line 516</a>
+        <a href="api.js.html">api.js</a>, <a href="api.js.html#line688">line 688</a>
     </li></ul></dd>
     
 
@@ -3000,36 +3913,6 @@ See <a href="NodeCG.html#sendMessage"><code>NodeCG#sendMessage</code></a> for us
 
     
 </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="stopSound"><span class="type-signature"></span>stopSound<span class="signature">(cueName)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Stops all currently playing instances of the provided <code>cueName</code>.</p>
-</div>
 
 
 
@@ -3070,7 +3953,7 @@ See <a href="NodeCG.html#sendMessage"><code>NodeCG#sendMessage</code></a> for us
             <td class="type">
             
                 
-<span class="param-type">String</span>
+<span class="param-type"><code>String</code></span>
 
 
             
@@ -3080,13 +3963,49 @@ See <a href="NodeCG.html#sendMessage"><code>NodeCG#sendMessage</code></a> for us
 
             
 
-            <td class="description last"></td>
+            <td class="description last">
+                
+                
+            </td>
         </tr>
 
     
     </tbody>
 </table>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="unlisten"><span class="type-signature"></span>unlisten<span class="signature">(messageName, bundleName<span class="signature-attributes">opt</span>, handlerFunc)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Removes a listener for a message.</p>
+<p>Messages are namespaced by bundle.
+To remove a listener to a message in another bundle's namespace, provide it as the second argument.</p>
+</div>
 
 
 
@@ -3121,7 +4040,7 @@ See <a href="NodeCG.html#sendMessage"><code>NodeCG#sendMessage</code></a> for us
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="api.js.html">api.js</a>, <a href="api.js.html#line492">line 492</a>
+        <a href="api.js.html">api.js</a>, <a href="api.js.html#line417">line 417</a>
     </li></ul></dd>
     
 
@@ -3140,6 +4059,152 @@ See <a href="NodeCG.html#sendMessage"><code>NodeCG#sendMessage</code></a> for us
 
 
 
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>messageName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>The name of the message.</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>bundleName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    CURR_BNDL
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>The bundle namespace to in which to listen for this message</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>handlerFunc</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>function</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>A reference to a handler function added as a listener to this message via <a href="NodeCG.html#listenFor"><code>NodeCG#listenFor</code></a>.</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -3147,6 +4212,48 @@ See <a href="NodeCG.html#sendMessage"><code>NodeCG#sendMessage</code></a> for us
 
 
 
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>boolean</code></span>
+
+
+    </dd>
+</dl>
+
+
+    
+</div>
+
+
+
+<div class="section-examples">
+<h5>Examples</h5>
+
+    <pre class="prettyprint"><code>nodecg.unlisten('printMessage', someFunctionName);</code></pre>
+
+        <p class="code-caption">Removing a listener from a message in another bundle's namespace:</p>
+    
+    <pre class="prettyprint"><code>nodecg.unlisten('printMessage', 'another-bundle', someFunctionName);</code></pre>
+
+</div>
+
+</div>
         
     
 
@@ -3165,16 +4272,11 @@ See <a href="NodeCG.html#sendMessage"><code>NodeCG#sendMessage</code></a> for us
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Mon Jun 12 2017 13:54:46 GMT-0500 (Central Daylight Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.2</a> on Tue Jul 09 2019 00:13:57 GMT+0200 (GMT+02:00) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>
 <script src="scripts/linenumber.js"></script>
-<script>
-  ((window.gitter = {}).chat = {}).options = {
-    room: 'nodecg/nodecg'
-  };
-</script>
-<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+<script src="scripts/currentpage.js"></script>
 </body>
 </html>
