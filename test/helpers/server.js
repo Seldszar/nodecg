@@ -30,6 +30,7 @@ export const setup = (nodecgConfigName = 'nodecg.json') => {
 	fse.copySync('test/fixtures/nodecg-core/db', path.join(tempFolder, 'db'));
 
 	const server = require(path.resolve(__dirname, '../../lib/server'));
+	const database = require(path.resolve(__dirname, '../../lib/database'));
 
 	test.before(async () => {
 		await new Promise((resolve, reject) => {
@@ -41,6 +42,7 @@ export const setup = (nodecgConfigName = 'nodecg.json') => {
 
 	test.beforeEach(t => {
 		t.context.server = server;
+		t.context.database = database;
 		t.context.apis = {
 			extension: server.getExtensions()[C.bundleName()]
 		};
