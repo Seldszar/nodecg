@@ -216,6 +216,9 @@ class NcgDashboardPanel extends Polymer.PolymerElement {
 				type: Number,
 				reflectToAttribute: true
 			},
+			maxHeight: {
+				type: Number
+			},
 			transitioning: {
 				type: Boolean,
 				notify: true
@@ -259,8 +262,9 @@ class NcgDashboardPanel extends Polymer.PolymerElement {
 	_attachIframeResize(iframe) {
 		window.iFrameResize({
 			log: false,
+			scrolling: 'omit',
 			resizeFrom: 'child',
-			heightCalculationMethod: 'documentElementOffset',
+			maxHeight: this.maxHeight,
 			onResized: data => {
 				this.$.collapse.updateSize('auto', false);
 				data.iframe.dispatchEvent(new CustomEvent('iframe-resized'));

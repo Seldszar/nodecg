@@ -58,8 +58,8 @@ class NcgWorkspace extends Polymer.PolymerElement {
 
 		<div id="panels">
 			<template is="dom-repeat" items="[[panels]]" as="panel">
-				<ncg-dashboard-panel id="[[panel.bundleName]]_[[panel.name]]" display-title="[[panel.title]]" bundle="[[panel.bundleName]]" panel="[[panel.name]]" header-color="[[panel.headerColor]]" width="[[panel.width]]" on-transitioning-changed="_handlePanelCollapseTransition" fullbleed="[[panel.fullbleed]]">
-					<iframe src="/bundles/[[panel.bundleName]]/dashboard/[[panel.file]]" frameborder="0" scrolling\$="[[_calcIframeScrolling(panel.fullbleed)]]" id="[[panel.bundleName]]_[[panel.name]]_iframe" on-iframe-resized="shiftPackery" fullbleed\$="[[panel.fullbleed]]">
+				<ncg-dashboard-panel id="[[panel.bundleName]]_[[panel.name]]" display-title="[[panel.title]]" bundle="[[panel.bundleName]]" panel="[[panel.name]]" header-color="[[panel.headerColor]]" width="[[panel.width]]" max-height="[[panel.maxHeight]]" on-transitioning-changed="_handlePanelCollapseTransition" fullbleed="[[panel.fullbleed]]">
+					<iframe src="/bundles/[[panel.bundleName]]/dashboard/[[panel.file]]" frameborder="0" scrolling\$="[[_calcIframeScrolling(panel)]]" id="[[panel.bundleName]]_[[panel.name]]_iframe" on-iframe-resized="shiftPackery" fullbleed\$="[[panel.fullbleed]]">
 					</iframe>
 				</ncg-dashboard-panel>
 			</template>
@@ -374,8 +374,8 @@ class NcgWorkspace extends Polymer.PolymerElement {
 		this.startObservingPanelMutations();
 	}
 
-	_calcIframeScrolling(fullbleed) {
-		return fullbleed ? 'yes' : 'no';
+	_calcIframeScrolling(panel) {
+		return panel.fullbleed || panel.maxHeight ? 'yes' : 'no';
 	}
 }
 
