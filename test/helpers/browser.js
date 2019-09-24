@@ -26,10 +26,6 @@ export const setup = () => {
 		});
 	});
 
-	test.beforeEach(t => {
-		t.context.browser = browser;
-	});
-
 	test.after.always(async () => {
 		if (!browser) {
 			return;
@@ -72,6 +68,10 @@ export const setup = () => {
 		/* eslint-enable no-await-in-loop */
 
 		await browser.close();
+	});
+
+	test.beforeEach(t => {
+		t.context.browser = browser;
 	});
 
 	const initDashboard = async () => {
